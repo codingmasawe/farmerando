@@ -1,6 +1,8 @@
 .navbar-farmerando {
+  font-family: Nunito, Helvetica, sans-serif;
   justify-content: space-between;
   background: #D3E5C5;
+  padding: 0 1rem;
 }
 
 .navbar-farmerando .navbar-collapse {
@@ -9,6 +11,11 @@
 
 .navbar-farmerando .navbar-brand {
   font-family: Cookie, cursive;
-  font-size: xx-large;
+  font-size: 30px;
+  // font-weight: bold;
   color: #646E78
+}
+
+.navbar-farmerando .navbar-brand hover {
+  color: #F9A826
 }
