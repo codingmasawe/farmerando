@@ -10,10 +10,77 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_113558) do
+ActiveRecord::Schema.define(version: 2021_03_02_143503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "buyer_preferences", force: :cascade do |t|
+    t.float "price"
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_buyer_preferences_on_product_id"
+    t.index ["user_id"], name: "index_buyer_preferences_on_user_id"
+  end
+
+  create_table "farmer_products", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_farmer_products_on_product_id"
+    t.index ["user_id"], name: "index_farmer_products_on_user_id"
+  end
+
+  create_table "markets", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "img_url", default: ""
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.bigint "market_id", null: false
+    t.string "img_url", default: ""
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["market_id"], name: "index_products_on_market_id"
+  end
+
+  create_table "transaction_products", force: :cascade do |t|
+    t.bigint "transaction_id", null: false
+    t.bigint "buyer_preference_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["buyer_preference_id"], name: "index_transaction_products_on_buyer_preference_id"
+    t.index ["transaction_id"], name: "index_transaction_products_on_transaction_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.float "total"
+    t.boolean "pickup"
+    t.string "status"
+    t.bigint "buyer_id"
+    t.bigint "farmer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["buyer_id"], name: "index_transactions_on_buyer_id"
+    t.index ["farmer_id"], name: "index_transactions_on_farmer_id"
+  end
+
+  create_table "user_markets", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "market_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["market_id"], name: "index_user_markets_on_market_id"
+    t.index ["user_id"], name: "index_user_markets_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +90,24 @@ ActiveRecord::Schema.define(version: 2021_03_02_113558) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "location"
+    t.string "role"
+    t.string "img_url"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "buyer_preferences", "products"
+  add_foreign_key "buyer_preferences", "users"
+  add_foreign_key "farmer_products", "products"
+  add_foreign_key "farmer_products", "users"
+  add_foreign_key "products", "markets"
+  add_foreign_key "transaction_products", "buyer_preferences"
+  add_foreign_key "transaction_products", "transactions"
+  add_foreign_key "transactions", "users", column: "buyer_id"
+  add_foreign_key "transactions", "users", column: "farmer_id"
+  add_foreign_key "user_markets", "markets"
+  add_foreign_key "user_markets", "users"
 end
