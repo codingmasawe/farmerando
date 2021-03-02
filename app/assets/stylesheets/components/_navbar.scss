@@ -1,12 +1,14 @@
-.navbar-lewagon {
+.navbar-farmerando {
   justify-content: space-between;
-  background: white;
+  background: #D3E5C5;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-farmerando .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-farmerando .navbar-brand {
+  font-family: Cookie, cursive;
+  font-size: xx-large;
+  color: #646E78
 }
