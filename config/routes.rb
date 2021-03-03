@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :products do
     resources :farmer_products, only: [:new, :show, :create]
   end
+  resources :buyer_preferences, only: [:new, :create]
+  get "profile", to: "users#profile"
 end
