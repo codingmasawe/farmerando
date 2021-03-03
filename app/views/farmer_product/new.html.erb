@@ -2,7 +2,7 @@
 
 
 <div class="container">
-  <%= simple_form_for([@farmer_product, @farmer]) do |f| %>
+  <%= simple_form_for([@farmer_product]) do |f| %>
     <%= f.association :products, multiple: true %>
     <%= f.submit %>
   <% end %>
