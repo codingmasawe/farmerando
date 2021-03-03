@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.
   resources :products do
-    resources :buyer_products only: [:create]
+    resources :farmer_products, only: [:new, :show, :create]
   end
 end
