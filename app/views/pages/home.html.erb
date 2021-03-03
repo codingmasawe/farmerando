@@ -1,5 +1,6 @@
-<div class="landing">
+<div class="container container-100-vh d-flex flex-column text-center justify-content-center">
   <div class="landing-banner">
+    <%= image_tag "undraw_weather_notification_4sbo.svg", alt: "Farmerando Logo", width: 200 %>
     <div>
       <h1 class="brand">farmerando</h1>
     </div>
@@ -9,7 +10,7 @@
   </div>
 
   <div class="login-block">
-    <button type="button" class="btn btn-main"> </i> <%= link_to 'Login'%> </button>
-    <button type="button" class="btn btn-main"> </i> <%= link_to 'Register'%> </button>
+    <%= link_to 'Login', new_user_session_path, class: "btn btn-main"%>
+    <%= link_to 'Register', new_user_registration_path, class: "btn btn-main mt-3"%>
   </div>
 </div>
