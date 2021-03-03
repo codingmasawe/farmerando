@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Product.destroy_all
+Market.destroy_all
+User.destroy_all
 
 
 # Create 6 Markets seeds (name, location, img)
