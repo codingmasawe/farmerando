@@ -6,7 +6,12 @@ class BuyerPreferencesController < ApplicationController
   def create
     @buyer_preference = BuyerPreference.new(buyer_preference_params)
     @buyer_preference.user = current_user
-    @buyer_preference.product = Product.find(buyer_preference_params[:product_id])
+    @buyer_preference.product = Product.find(params[:buyer_preference][:product_id])
+    if @buyer_preference.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
