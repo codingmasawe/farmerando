@@ -8,6 +8,8 @@
 Product.destroy_all
 Market.destroy_all
 User.destroy_all
+FarmerProduct.destroy_all
+BuyerPreference.destroy_all
 
 
 # Create 6 Markets seeds (name, location, img)
@@ -22,12 +24,12 @@ m3 = Market.create!(name: "Nakasero Market", location: "Kampala", img_url: "mark
 # u1 = User.create!(email: "pedro@pedro.com", password: "123456", first_name: "Pedro", last_name: "Sanchez", location: "Cusco", img_url: "/app/assets/images/users/pedro.jpg")
 # u2 = User.create!(email: "ana@ana.com", password: "123456", first_name: "Ana", last_name: "Cavaho", location: "Cusco", img_url: "/app/assets/images/users/ana.jpg")
 # u3 = User.create!(email: "carla@carla.com", password: "123456", first_name: "Carla", last_name: "Marin", location: "Cusco", img_url: "/app/assets/images/users/carla.jpg")
-u4 = User.create!(email: "john@john.com", password: "123456", first_name: "John", last_name: "Moriwi", location: "Kampala", img_url: "users/john.jpg")
-u5 = User.create!(email: "jessica@jessica.com", password: "123456", first_name: "Jessica", last_name: "Ariwa", location: "Kampala", img_url: "users/jessica.jpg")
-u6 = User.create!(email: "barack@barack.com", password: "123456", first_name: "Barack", last_name: "Mumba", location: "Kampala", img_url: "users/barack.jpg")
-u7 = User.create!(email: "innocent@innocent.com", password: "123456", first_name: "Innocent", last_name: "Obiri", location: "Kampala", img_url: "users/innocent.jpg")
-u8 = User.create!(email: "stella@stella.com", password: "123456", first_name: "Stella", last_name: "Bravo", location: "Kampala", img_url: "users/stella.jpg")
-u9 = User.create!(email: "godin@godin.com", password: "123456", first_name: "Godin", last_name: "Maputo", location: "Kampala", img_url: "users/godin.jpg")
+john = User.create!(email: "john@john.com", password: "123456", first_name: "John", last_name: "Moriwi", location: "Kampala", img_url: "users/john.jpg", role: "buyer")
+stella = User.create!(email: "stella@stella.com", password: "123456", first_name: "Stella", last_name: "Bravo", location: "Kampala", img_url: "users/stella.jpg", role: "buyer")
+godin = User.create!(email: "godin@godin.com", password: "123456", first_name: "Godin", last_name: "Maputo", location: "Kampala", img_url: "users/godin.jpg", role: "buyer")
+jessica = User.create!(email: "jessica@jessica.com", password: "123456", first_name: "Jessica", last_name: "Ariwa", location: "Kampala", img_url: "users/jessica.jpg", role: "farmer")
+barack = User.create!(email: "barack@barack.com", password: "123456", first_name: "Barack", last_name: "Mumba", location: "Kampala", img_url: "users/barack.jpg", role: "farmer")
+innocent = User.create!(email: "innocent@innocent.com", password: "123456", first_name: "Innocent", last_name: "Obiri", location: "Kampala", img_url: "users/innocent.jpg", role: "farmer")
 # u10 = User.create!(email: "richard@richard.com", password: "123456", first_name: "Richard", last_name: "Mollo", location: "Libreville", img_url: "/app/assets/images/users/richard.jpg")
 # u11 = User.create!(email: "cori@cori.com", password: "123456", first_name: "Cori", last_name: "Cando", location: "Libreville", img_url: "/app/assets/images/users/cori.jpg")
 # u12 = User.create!(email: "bruna@bruna.com", password: "123456", first_name: "Bruna", last_name: "Ka", location: "Libreville", img_url: "/app/assets/images/users/bruna.jpg")
@@ -45,4 +47,17 @@ watermelon = Product.create!(name: "watermelon", market: m3, img_url: "products/
 zucchini = Product.create!(name: "zucchini", market: m3, img_url: "products/zucchini.png")
 date = Product.create!(name: "date", market: m3, img_url: "products/date.png")
 pineapple = Product.create!(name: "pineapple", market: m3, img_url: "products/pineapple.png")
+
+
+# create farmer products
+fp_jessica_1 = FarmerProduct.create!(user: jessica, product: potato)
+fp_jessica_2 = FarmerProduct.create!(user: jessica, product: cabbage)
+fp_jessica_3 = FarmerProduct.create!(user: jessica, product: carrot)
+
+# create buyer preference
+bp_john_1 = BuyerPreference.create!(user: john, product: banana, price: 2.5)
+bp_john_2 = BuyerPreference.create!(user: john, product: cabbage, price: 3)
+bp_john_1 = BuyerPreference.create!(user: john, product: carrot, price: 1.5)
+
+
 
