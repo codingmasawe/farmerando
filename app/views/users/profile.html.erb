@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="container container-100-vh d-flex flex-column text-center justify-content-center">
   <h1 class="brand">farmerando</h1>
   <h5>What would you like to buy?</h5>
@@ -15,15 +14,3 @@
       <%= f.button :submit, "save your product", class: "btn btn-main"%>
     <% end %>
   </div>
-=======
-<!-- # render the list of vegetables on top, showing what the buyer has already added to his preferences
- -->
-<div class="container">
-  <%= simple_form_for @buyer_preference do |f| %>
-    <%= f.association :product %>
-    <%= f.input :price %>
-    <%= f.button :submit %>
-  <% end %>
->>>>>>> d8bbb9c034fd74cff6729af01dde566459ba0f01
-</div>
-
