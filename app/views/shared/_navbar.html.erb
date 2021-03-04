@@ -1,45 +1,32 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-farmerando">
-
-  <%= link_to "Farmerando", "#", class: "navbar-brand" %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <!-- <li class="nav-item">
-          <i class="fas fa-seedling"></i> -->
-          <%#= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <li class="nav-item">
-          <%= link_to "Choose a market", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Sell produces", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Buy produces", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-
-
-          <% if current_user.img_url %>
-          <%= image_tag current_user.img_url, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end  %>
-
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
+  <%= link_to "farmerando", "#", class: "navbar-brand" %>
+  <%= link_to '#' do %>
+    <i class="fas fa-map-marker-alt"></i>
+  <% end %>
+  <%= link_to '#' do %>
+    <i class="fas fa-cloud-sun"></i>
+  <% end %>
+  <%= link_to '#' do %>
+    <i class="fas fa-video"></i>
+  <% end %>
+  <i class="fas fa-cog" id="settings-cog" onclick="toggleOn()"></i>
+  <div class="settings-collapsed settings-hidden" id="cog-collapsed">
+    <%= link_to "Profile", profile_path(current_user) %>
+    <% if user_signed_in? %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+    <% end %>
   </div>
 </div>
+
+<script>
+  const toggleOn = () => {
+    const cog = document.getElementById("cog-collapsed");
+    if (cog.classList.contains("settings-hidden")) {
+      cog.classList.remove("settings-hidden")
+    } else {
+      cog.classList.add("settings-hidden")
+    }
+  }
+</script>

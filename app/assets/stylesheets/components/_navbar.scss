@@ -2,7 +2,7 @@
   font-family: Nunito, Helvetica, sans-serif;
   justify-content: space-between;
   vertical-align: middle;
-  background: #D3E5C5;
+  background: #ebf5df;
   padding: 0.5rem 1rem;
 }
 
@@ -13,10 +13,21 @@
 .navbar-farmerando .navbar-brand {
   font-family: Cookie, cursive;
   font-size: 30px;
-  // font-weight: bold;
   color: #646E78
 }
 
 .navbar-farmerando .navbar-brand hover {
   color: #F9A826
+}
+
+.settings-collapsed {
+    position: absolute;
+    top: 70px;
+    right: 0px;
+    background-color: #ebf5df;
+    width: 160px;
+}
+
+.settings-hidden {
+  display: none;
 }
