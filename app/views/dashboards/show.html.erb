@@ -1,0 +1,18 @@
+<h1>This is the dashboard view</h1>
+
+<div class="container">
+  <div class="container-horizontal">
+    <div class="row py-4">
+
+<%= render "shared/card-produce", product: Product.first %>
+<%= render "shared/card-produce", product: Product.second %>
+<%= render "shared/card-produce", product: Product.third %>
+<%= render "shared/card-produce", product: Product.fourth %>
+<%= render "shared/card-produce", product: Product.fifth %>
+
+
+    </div>
+  </div>
+<%= render "shared/card-buyer", user: User.first  %>
+
+  </div>

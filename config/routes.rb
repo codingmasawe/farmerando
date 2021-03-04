@@ -10,4 +10,8 @@ Rails.application.routes.draw do
 
     resources :buyer_preferences, only: [:new, :create]
     get "profile", to: "users#profile"
+
+    resources :dashboard, only: [:new, :show]
+    get "/dashboard", to: "dashboards#show"
+
 end

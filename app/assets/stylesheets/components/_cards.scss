@@ -5,14 +5,78 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 150px;
+    width: 100%;
     height:150px;
-    margin: 10px;
+    border-radius: 25px;
   }
   .card-produce-img {
     text-align: center;
   }
   .card-produce-info{
     display: flex;
-    justify-content: space-between;
+    font-size: 11px;
   }
+
+
+
+.container-horizontal > .row {
+  overflow-x: auto;
+  white-space: nowrap;
+  display: block;
+}
+
+.container-horizontal > .row > .col-4 {
+  display: inline-block;
+}
+
+
+
+
+
+.card-buyer {
+  overflow: hidden;
+  height: 150px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-buyer img {
+  height: 80%;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card-buyer h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-buyer p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-buyer .card-buyer-infos {
+  padding: 16px;
+  display:flex;
+  justify-content: center;
+}
+
+
+.card-buyer-products {
+  display: flex;
+  flex-direction: wrap;
+  flex-direction: row;
+}
+
+.card-buyer-go {
+  display: flex;
+  justify-content: flex-end
+}
+
