@@ -10,16 +10,16 @@
   </div>
 
   <div class="login-block">
-    <%= link_to 'Login', new_user_session_path, class: "btn btn-main"%>
-    <%= link_to 'Register', new_user_registration_path, class: "btn btn-main mt-3"%>
+    <% if user_signed_in? %>
+      <%= link_to 'Go to Dashboard', "#", class: "btn btn-main"%>
+    <% else %>
+      <%= link_to 'Login', new_user_session_path, class: "btn btn-main"%>
+      <%= link_to 'Register', new_user_registration_path, class: "btn btn-main mt-3"%>
+    <% end %>
   </div>
 </div>
 
 
-
-
-
-
-
-
+<%= render "shared/card-produce", product: Product.first %>
+<%= render "shared/card-produce", product: Product.second %>
 
