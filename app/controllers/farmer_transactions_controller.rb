@@ -1,0 +1,2 @@
+class FarmerTransactionsController < ApplicationController
+end
