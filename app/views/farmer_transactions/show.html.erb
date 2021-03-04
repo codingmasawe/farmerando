@@ -1,0 +1,19 @@
+<div>
+  <h2>
+    Current products for transaction
+  </h2>
+
+</div>
+
+<% @buyer.buyer_preferences.each do |bp| %>
+  <%= bp.product.name %>, <%= bp.price %> |
+  <%= simple_form_for([@farmer_transaction, TransactionProduct.new], method: :post) do |f| %>
+  <%= f.input :quantity %>
+  <%= f.submit %>
+  <% end %>
+<% end %>
+
+
+
+
+

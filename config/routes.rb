@@ -6,12 +6,11 @@ Rails.application.routes.draw do
     resources :farmer_products, only: [:new, :show, :create]
     get "profile", to: "users#profile"
 
-    resources :farmer_transaction, only: [:new, :show, :create]
-
     resources :buyer_preferences, only: [:new, :create]
     get "profile", to: "users#profile"
 
-    resources :dashboard, only: [:new, :show]
-    get "/dashboard", to: "dashboards#show"
-
+    get "dashboard", to: "dashboard#show"
+    resources :farmer_transactions, only: [:new, :create, :show] do
+      resources :transaction_products, only: [:create]
+    end
 end
