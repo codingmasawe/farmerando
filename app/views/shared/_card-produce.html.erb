@@ -1,16 +1,25 @@
 <!--
 Keep this line and keep it to make product cards dynamic -->
 <%#= render "shared/card-produce", product: @product %>
-<!--
-<div class="card-produce">
-  <div class="card-produce-img">
-    <%#= image_tag product.img_url, width: 90 %>
-  </div>
-  <div class="card-produce-info">
-    <p> <%#= product.name %> </p>
-    <p> 2$ </p>
-  </div>
-</div>
+
+        <div class="col-4 px-1">
+        <div class="card-produce">
+          <div class="card-produce-img">
+            <%= image_tag product.img_url, width: 70 %>
+          </div>
+          <div class="card-produce-info">
+            <div class="pr-3">
+              <p> <%= product.name.capitalize %> </p>
+              <p> 5 Buyers </p>
+            </div>
+            <div>
+             <strong><p> KSH </p></strong>
+             <strong><p> 500 </p></strong>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
- -->
+
+
