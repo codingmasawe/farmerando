@@ -23,6 +23,7 @@
                   placeholder: "please confirm password",
                   input_html: { autocomplete: "new-password", class: "rounded-input" } ,
                   label_html: {class: "d-none"}%>
+      <%= f.input :role, label: "Are you a farmer or a buyer?", collection: ["farmer", "buyer"], input_html: { class: "rounded-input" }%>
     </div>
 
     <div class="form-actions">
