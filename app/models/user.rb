@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # has_many :farmer_products, dependent: :destroy
+  has_many :farmer_products, dependent: :destroy
   # has_many :products, through: :farmer_products
 
-  # has_many :buyer_preferences, dependent: :destroy
-  # has_many :products, through: :buyer_preferences
+  has_many :buyer_preferences, dependent: :destroy
+  has_many :products, through: :buyer_preferences
 
   # has_many :user_markets, dependent: :destroy
   # has_many :markets, through: :user_markets
