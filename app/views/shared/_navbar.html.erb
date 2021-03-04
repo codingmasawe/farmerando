@@ -24,9 +24,6 @@
         </li>
         <li class="nav-item dropdown">
 
-          <% if current_user.img_url %>
-          <%= image_tag current_user.img_url, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end  %>
 
           <% if current_user.img_url %>
           <%= image_tag current_user.img_url, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
