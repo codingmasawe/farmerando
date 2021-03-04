@@ -5,7 +5,7 @@ class FarmerProductsController < ApplicationController
   end
 
   def create
-    @farmer_product = FarmerProduct.new(params[:farmer_product][:product_id])
+    @farmer_product = FarmerProduct.new(farmer_product_params)
     @farmer_product.user = current_user
     if @farmer_product.save
       #change redirect to index
@@ -21,3 +21,5 @@ class FarmerProductsController < ApplicationController
     params.require(:farmer_product).permit(:product_id)
   end
 end
+
+
