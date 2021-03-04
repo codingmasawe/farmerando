@@ -1,6 +1,6 @@
-class CreateTransactions < ActiveRecord::Migration[6.0]
+class CreateFarmerTransactions < ActiveRecord::Migration[6.0]
   def change
-    create_table :transactions do |t|
+    create_table :farmer_transactions do |t|
       t.float :total
       t.boolean :pickup
       t.string :status

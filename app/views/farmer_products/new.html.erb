@@ -1,8 +1,9 @@
 <h1>Add the products which you are growing here</h1>
 
  <div class="container">
-  <%= simple_form_for([@farmer_product]) do |f| %>
-    <%= f.association :products, multiple: true %>
+  <%= simple_form_for @farmer_product do |f| %>
+    <%= f.association :product %>
     <%= f.submit %>
   <% end %>
 </div>
+
