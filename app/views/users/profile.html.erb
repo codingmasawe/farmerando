@@ -1,7 +1,17 @@
-<div class="container">
-  <%= simple_form_for @buyer_preference do |f| %>
-    <%= f.association :product %>
-    <%= f.input :price %>
-    <%= f.button :submit %>
-  <% end %>
+<div class="container container-100-vh d-flex flex-column text-center justify-content-center">
+  <h1 class="brand">farmerando</h1>
+  <h5>Product and Price Preference</h5>
+  <div>
+    <%= simple_form_for @buyer_preference do |f| %>
+      <%= f.association :product,
+                        placeholder: "select product",
+                        input_html: { autocomplete: "select product", class: "rounded-input" },
+                        label_html: {class: "d-none"}%>
+      <%= f.input       :price,
+                        placeholder: "type in price",
+                        input_html: { autocomplete: "select product", class: "rounded-input" },
+                        label_html: {class: "d-none"}%>
+      <%= f.button :submit, "set your preference", class: "btn btn-main"%>
+    <% end %>
+  </div>
 </div>
