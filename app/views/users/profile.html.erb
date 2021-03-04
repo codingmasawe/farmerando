@@ -1,3 +1,5 @@
+<!-- # render the list of vegetables on top, showing what the buyer has already added to his preferences
+ -->
 <div class="container">
   <%= simple_form_for @buyer_preference do |f| %>
     <%= f.association :product %>
@@ -5,3 +7,4 @@
     <%= f.button :submit %>
   <% end %>
 </div>
+
