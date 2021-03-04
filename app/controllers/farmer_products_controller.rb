@@ -1,13 +1,11 @@
 class FarmerProductsController < ApplicationController
 
   def new
-    @product = Product.find(params[:product_id])
     @farmer_product = FarmerProduct.new
   end
 
   def create
-    @products = Product.all
-    @farmer_product = FarmerProduct.new(farmer_product_params)
+    @farmer_product = FarmerProduct.new(params[:farmer_product][:product_id])
     @farmer_product.user = current_user
     if @farmer_product.save
       #change redirect to index
