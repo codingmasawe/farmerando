@@ -34,18 +34,6 @@ ActiveRecord::Schema.define(version: 2021_03_02_143503) do
     t.index ["user_id"], name: "index_farmer_products_on_user_id"
   end
 
-  create_table "farmer_transactions", force: :cascade do |t|
-    t.float "total"
-    t.boolean "pickup"
-    t.string "status"
-    t.bigint "buyer_id"
-    t.bigint "farmer_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["buyer_id"], name: "index_farmer_transactions_on_buyer_id"
-    t.index ["farmer_id"], name: "index_farmer_transactions_on_farmer_id"
-  end
-
   create_table "markets", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -64,13 +52,25 @@ ActiveRecord::Schema.define(version: 2021_03_02_143503) do
   end
 
   create_table "transaction_products", force: :cascade do |t|
-    t.bigint "farmer_transaction_id", null: false
+    t.bigint "transaction_id", null: false
     t.bigint "buyer_preference_id", null: false
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["buyer_preference_id"], name: "index_transaction_products_on_buyer_preference_id"
-    t.index ["farmer_transaction_id"], name: "index_transaction_products_on_farmer_transaction_id"
+    t.index ["transaction_id"], name: "index_transaction_products_on_transaction_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.float "total"
+    t.boolean "pickup"
+    t.string "status"
+    t.bigint "buyer_id"
+    t.bigint "farmer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["buyer_id"], name: "index_transactions_on_buyer_id"
+    t.index ["farmer_id"], name: "index_transactions_on_farmer_id"
   end
 
   create_table "user_markets", force: :cascade do |t|
@@ -103,11 +103,11 @@ ActiveRecord::Schema.define(version: 2021_03_02_143503) do
   add_foreign_key "buyer_preferences", "users"
   add_foreign_key "farmer_products", "products"
   add_foreign_key "farmer_products", "users"
-  add_foreign_key "farmer_transactions", "users", column: "buyer_id"
-  add_foreign_key "farmer_transactions", "users", column: "farmer_id"
   add_foreign_key "products", "markets"
   add_foreign_key "transaction_products", "buyer_preferences"
-  add_foreign_key "transaction_products", "farmer_transactions"
+  add_foreign_key "transaction_products", "transactions"
+  add_foreign_key "transactions", "users", column: "buyer_id"
+  add_foreign_key "transactions", "users", column: "farmer_id"
   add_foreign_key "user_markets", "markets"
   add_foreign_key "user_markets", "users"
 end
