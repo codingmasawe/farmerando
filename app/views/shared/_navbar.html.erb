@@ -1,19 +1,19 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-farmerando">
   <%= link_to "farmerando", "#", class: "navbar-brand" %>
   <%= link_to '#' do %>
-    <i class="fas fa-map-marker-alt"></i>
+    <i class="fas fa-map-marker-alt navbar-icon"></i>
   <% end %>
   <%= link_to '#' do %>
-    <i class="fas fa-cloud-sun"></i>
+    <i class="fas fa-cloud-sun navbar-icon"></i>
   <% end %>
   <%= link_to '#' do %>
-    <i class="fas fa-video"></i>
+    <i class="fas fa-video navbar-icon"></i>
   <% end %>
-  <i class="fas fa-cog" id="settings-cog" onclick="toggleOn()"></i>
+  <i class="fas fa-cog navbar-icon" id="settings-cog" onclick="toggleOn()"></i>
   <div class="settings-collapsed settings-hidden" id="cog-collapsed">
-    <%= link_to "Profile", profile_path(current_user) %>
+    <%= link_to "Profile", profile_path(current_user), class: "nav-link"%>
     <% if user_signed_in? %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
     <% else %>
       <%= link_to "Login", new_user_session_path, class: "nav-link" %>
     <% end %>

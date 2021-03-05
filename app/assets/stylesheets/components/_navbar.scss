@@ -13,11 +13,11 @@
 .navbar-farmerando .navbar-brand {
   font-family: Cookie, cursive;
   font-size: 30px;
-  color: #646E78
+  color: #646E78;
 }
 
 .navbar-farmerando .navbar-brand hover {
-  color: #F9A826
+  // color: #F9A826;
 }
 
 .settings-collapsed {
@@ -30,4 +30,12 @@
 
 .settings-hidden {
   display: none;
+}
+
+.nav-link {
+  color: #646E78;
+}
+
+.navbar-icon {
+  color: #646E78;
 }
