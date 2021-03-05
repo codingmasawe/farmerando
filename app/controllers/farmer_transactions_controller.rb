@@ -13,33 +13,44 @@ class FarmerTransactionsController < ApplicationController
     end
   end
 
-  # def create
-  #   @farmer_transaction = FarmerTransaction.new(farmer_transaction_params)
-  #   @farmer_transaction.farmer_id = current_user
-
-
-  #   @buyer_preference.user = current_user
-  #   @buyer_preference.product = Product.find(params[:buyer_preference][:product_id])
-  #   if @buyer_preference.save
-  #     redirect_to root_path
-  #   else
-  #     render :new
-  #   end
-  # end
-
   def show
     @farmer_transaction = FarmerTransaction.find(params[:id])
     @buyer = FarmerTransaction.find(params[:id]).buyer
+    @farmer = FarmerTransaction.find(params[:id]).farmer
     @transaction_product = TransactionProduct.new
+  end
+
+  def confirm
+    @farmer_transaction = FarmerTransaction.find(params[:id])
+    @farmer_transaction.status = "confirmed"
+
+    @total = 0
+
+    @farmer_transaction.transaction_products.each do |tp|
+      @total += tp.quantity * tp.buyer_preference.price
+    end
+
+    @farmer_transaction.total = @total
+
+    @farmer_transaction.save
+
+    redirect_to farmer_transaction_path(@farmer_transaction)
   end
 
   private
 
-  def transaction_product_params
-    params.require(:transaction_product).permit(:farmer_transaction_id, :buyer_preference)
-  end
 
   def farmer_transaction_params
     params.require(:farmer_transaction).permit(:buyer_id, :farmer_id)
   end
 end
+
+
+# Confirm the trasaction would be like the accept and reject of airbnb
+# 1/ Custom route
+# get '/confirm/:id', to: 'farmer_transactions#confirm'
+# 2/ method in FarmerTransactions controller
+# def confirm
+# @farmer_transaction = FarmerTransaction.find(params[:id])
+# # change status of transaction and redirect to the show of farmtransaction
+# 3/ link in view (edited)
