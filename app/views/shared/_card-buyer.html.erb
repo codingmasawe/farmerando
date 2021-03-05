@@ -2,18 +2,19 @@
 
 
 <div class="card-buyer">
-  <div>
-            <%= image_tag user.img_url, width: 70 %>
-  </div>
-  <div class="card-buyer-products">
-<%= render "shared/card-produce-only-image", product: Product.first %>
-<%= render "shared/card-produce-only-image", product: Product.second %>
-<%= render "shared/card-produce-only-image", product: Product.third %>
-<%= render "shared/card-produce-only-image", product: Product.fourth %>
-<%= render "shared/card-produce-only-image", product: Product.fifth %>
+    <div class="col ml-5 p-3">
+                <%= image_tag user.img_url, width: 70 %>
+                <p> <%= user.first_name %> <%= user.last_name %> </p>
 
+    </div>
+      <div class="card-buyer-products ml-5 py-2">
+      <div class="product_small"><%= render "shared/card-produce-only-image", product: Product.first %></div>
+      <div class="product_small"><%= render "shared/card-produce-only-image", product: Product.second %></div>
+      <div class="product_small"><%= render "shared/card-produce-only-image", product: Product.third %></div>
+      <div class="product_small"><%= render "shared/card-produce-only-image", product: Product.fourth %></div>
+      <div class="product_small"><%= render "shared/card-produce-only-image", product: Product.fifth %></div>
+      </div>
+    <div class="col card-buyer-go">
+      <img src="https://cdn.icon-icons.com/icons2/488/PNG/512/go_47732.png" />
+    </div>
   </div>
-  <div class="card-buyer-go">
-  <img src="https://cdn.icon-icons.com/icons2/488/PNG/512/go_47732.png" />
-  </div>
-</div>
