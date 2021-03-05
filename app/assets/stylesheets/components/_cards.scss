@@ -36,47 +36,42 @@
 .card-buyer {
   overflow: hidden;
   height: 150px;
+  max-width: auto;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
+  // align-items: center;
+  border-radius: 25px;
+  flex-direction: row;
 }
 
-.card-buyer img {
-  height: 80%;
-  width: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-}
 
-.card-buyer h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
+
 
 .card-buyer p {
-  font-size: 12px;
+  font-size: 8px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
 }
 
-.card-buyer .card-buyer-infos {
-  padding: 16px;
-  display:flex;
-  justify-content: center;
-}
+
 
 
 .card-buyer-products {
   display: flex;
-  flex-direction: wrap;
+  flex-wrap: wrap;
   flex-direction: row;
 }
+
+      .card-buyer-products>* {
+          flex: 0 0 33.3333%;
+      }
 
 .card-buyer-go {
   display: flex;
   justify-content: flex-end
 }
+
+
 

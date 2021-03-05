@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :buyer_preferences, only: [:new, :create]
     get "profile", to: "users#profile"
 
-    get "dashboard", to: "dashboard#show"
+    get "dashboards", to: "dashboards#show"
     resources :farmer_transactions, only: [:new, :create, :show] do
       resources :transaction_products, only: [:create]
     end
