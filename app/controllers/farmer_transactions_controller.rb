@@ -24,20 +24,21 @@ class FarmerTransactionsController < ApplicationController
     @farmer_transaction = FarmerTransaction.find(params[:id])
     @farmer_transaction.status = "confirmed"
 
-    @buyer = FarmerTransaction.find(params[:id]).buyer
-    @farmer = FarmerTransaction.find(params[:id]).farmer
-    @transaction_product = TransactionProduct.new
+    @total = 0
 
-    if @farmer_transaction.status == "confirmed"
-      redirect_to (@farmer_transaction)
+    @farmer_transaction.transaction_products.each do |tp|
+      @total += tp.quantity * tp.buyer_preference.price
     end
+
+    @farmer_transaction.total = @total
+
+    @farmer_transaction.save
+
+    redirect_to farmer_transaction_path(@farmer_transaction)
   end
 
   private
 
-  def transaction_product_params
-    params.require(:transaction_product).permit(:farmer_transaction_id, :buyer_preference)
-  end
 
   def farmer_transaction_params
     params.require(:farmer_transaction).permit(:buyer_id, :farmer_id)
