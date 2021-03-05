@@ -2,25 +2,23 @@
 
 
   <div class="dashboard-banner d-flex">
-      <div class="product-container">
-        <%= image_tag "john.jpg", alt: "Change Procuct", class: "avatar" %>
-        <%= link_to 'Change Produce', "#", class: "btn btn-main"%>
-      </div>
+    <div class="product-container">
+      <%= image_tag "john.jpg", alt: "Change Procuct", class: "avatar" %>
+      <%= link_to 'Change Produce', "#", class: "btn btn-main"%>
+    </div>
 
+    <div class="avatar-container">
+      <%= image_tag current_user.img_url, alt: "User Avatar", class: "avatar" %>
+      <p>Hello, <%= current_user.first_name %>!  </p>
+    </div>
 
-      <div class="avatar-container">
-        <%= image_tag current_user.img_url, alt: "User Avatar", class: "avatar-large" %>
-        <p>Hello, <%= current_user.first_name %>!  </p>
-      </div>
-
-
-      <div class="market-container">
-        <%= image_tag "nakasero.jpg", alt: "Choose Market", class: "avatar" %>
-        <%= link_to "#", class: "btn btn-main" do %>
-          Mwenge Market
-          <i class="fas fa-sort-down"></i>
-        <% end %>
-      </div>
+    <div class="market-container">
+      <%= image_tag "nakasero.jpg", alt: "Choose Market", class: "avatar" %>
+      <%= link_to "#", class: "btn btn-main" do %>
+        Mwenge Market
+        <i class="fas fa-sort-down"></i>
+      <% end %>
+    </div>
   </div>
 
 
