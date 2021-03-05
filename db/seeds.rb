@@ -59,5 +59,16 @@ bp_john_1 = BuyerPreference.create!(user: john, product: banana, price: 2.5)
 bp_john_2 = BuyerPreference.create!(user: john, product: cabbage, price: 3)
 bp_john_1 = BuyerPreference.create!(user: john, product: carrot, price: 1.5)
 
+# create buyer preference
+bp_godin_1 = BuyerPreference.create!(user: godin, product: banana, price: 2)
+bp_godin_2 = BuyerPreference.create!(user: godin, product: eggplant, price: 1)
+bp_godin_3 = BuyerPreference.create!(user: godin, product: garlic, price: 1.5)
+bp_godin_4 = BuyerPreference.create!(user: godin, product: potato, price: 2)
+bp_godin_5 = BuyerPreference.create!(user: godin, product: mango, price: 2.7)
 
+bp_stella_1 = BuyerPreference.create!(user: stella, product: banana, price: 3)
+bp_stella_2 = BuyerPreference.create!(user: stella, product: lettuce, price: 1)
+bp_stella_3 = BuyerPreference.create!(user: stella, product: zucchini, price: 2.7)
+bp_stella_4 = BuyerPreference.create!(user: stella, product: potato, price: 2)
+bp_stella_5 = BuyerPreference.create!(user: stella, product: watermelon, price: 2)
 

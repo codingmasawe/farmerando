@@ -6,9 +6,9 @@
 
       <% @buyer.buyer_preferences.each do |bp| %>
         <div>
-        <%= bp.product.name %>, <%= bp.price %> |
+        <%= bp.product.name %>, <%= bp.price %>$ |
         <% if bp.transaction_products.where(farmer_transaction_id: @farmer_transaction.id).any? %>
-          <%= bp.transaction_products.first.quantity %>
+          sold quantity <%= bp.transaction_products.first.quantity %>
           <% else %>
             <%= simple_form_for([@farmer_transaction, TransactionProduct.new], method: :post) do |f| %>
               <%= f.input :quantity, label: "kg" %>
