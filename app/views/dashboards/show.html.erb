@@ -1,33 +1,15 @@
-<% @buyers.each do |buyer| %>
-  <%= buyer.first_name %>
-  <div>
-    <ul>
-    <% buyer.buyer_preferences.each do |bp| %>
-      <li>
-        <%= bp.product.name %>, <%= bp.price %> |
-      </li>
-    <% end  %>
-    <%= link_to "Make a transaction", new_farmer_transaction_path(user: buyer) %>
-    </ul>
-  </div>
-<% end %>
-<!--
-link_to "some text", users_path(buyer_preferance: @buyer_preference) -->
-
-
-<h1>This is the dashboard view</h1>
-
 <div class="container">
   <div class="container-horizontal">
     <div class="row py-4">
-<%= render "shared/card-produce", product: Product.first %>
-<%= render "shared/card-produce", product: Product.second %>
-<%= render "shared/card-produce", product: Product.third %>
-<%= render "shared/card-produce", product: Product.fourth %>
-<%= render "shared/card-produce", product: Product.fifth %>
-
+      <%   @farmer_products.each do |product| %>
+        <%= render "shared/card-produce", product: product %>
+      <% end  %>
+      <ul class="buyer-list">
+        <% @buyer_preferences.each do |bp| %>
+          <%= render "shared/card-buyer", product: bp.product, price:bp.price, user:bp.user %>
+        <% end  %>
+      </ul>
     </div>
   </div>
-<%= render "shared/card-buyer", user: User.first  %>
+</div>
 
-  </div>
