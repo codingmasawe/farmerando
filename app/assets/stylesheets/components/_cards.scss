@@ -42,6 +42,8 @@
   // align-items: center;
   border-radius: 25px;
   flex-direction: row;
+  justify-content: space-between;
+  margin: 4px;
 }
 
 
@@ -56,6 +58,38 @@
 }
 
 
+.card-buyer-left {
+  img {
+    height: 110px;
+    width: 110px;
+    border-radius: 25%;
+  }
+  p {
+    font-size: 15px;
+    margin-left: 10px;
+  }
+}
+
+.card-buyer-right {
+  .card-buyer-right-container {
+    display: flex;
+    p {
+      margin: auto 0;
+      font-size: 18px;
+    }
+    .price-margin {
+      margin-left: 20px;
+    }
+    .product-name-space {
+      margin-left: 6px;
+    }
+    img {
+      margin: 4px;
+      height: 75px;
+    }
+  }
+
+}
 
 
 .card-buyer-products {
@@ -72,6 +106,7 @@
   display: flex;
   justify-content: flex-end
 }
+
 
 
 
