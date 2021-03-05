@@ -1,32 +1,4 @@
 <div class="container container-100-vh d-flex flex-column text-center justify-content-center">
-
-
-  <div class="dashboard-banner d-flex">
-    <div class="product-container mt-2">
-      <div class="procuct-avatar mb-2">
-      <%= image_tag "potato-icon.jpg", alt: "Change Procuct", class: "avatar" %>
-      </div>
-      <%= link_to 'Change Produce', "#", class: "btn btn-main-small"%>
-    </div>
-
-    <div class="avatar-container">
-      <%= image_tag current_user.img_url, alt: "User Avatar", class: "avatar-large" %>
-      <p class="greeting"> Hello, <%= current_user.first_name %>!  </p>
-    </div>
-
-    <div class="market-container mt-2">
-      <div class="procuct-avatar mb-2">
-        <%= image_tag "nakasero.jpg", alt: "Choose Market", class: "avatar" %>
-        <%= link_to "#", class: "btn btn-main-small" do %>
-          Mwenge Market
-          <i class="fas fa-sort-down"></i>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-
-
   <h1 class="brand">farmerando</h1>
   <h5>What would you like to buy?</h5>
   <div>
