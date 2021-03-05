@@ -1,29 +1,33 @@
-<div class="container">
-
-    <h5>
+<div class="container text-center mt-3 justify-content-center">
+    <p>
       <%= @farmer.first_name %>, choose the amount of produces you would like to sell to <%= @buyer.first_name %>
-    </h5>
-
-      <% @buyer.buyer_preferences.each do |bp| %>
+    </p>
+      <div>
+        <% @buyer.buyer_preferences.each do |bp| %>
         <div>
-        <%= bp.product.name %>, <%= bp.price %> |
+        <%= render "shared/card-produce-only-image", product: bp.product %>
+        <%= bp.product.name %>, <%= bp.price %>$
         <% if bp.transaction_products.where(farmer_transaction_id: @farmer_transaction.id).any? %>
           <%= bp.transaction_products.first.quantity %>
           <% else %>
             <%= simple_form_for([@farmer_transaction, TransactionProduct.new], method: :post) do |f| %>
-              <%= f.input :quantity, label: "kg" %>
+              <%= f.input :quantity, input_html: { class: "rounded-input" }, placeholder: "kg",
+                  label_html: {class: "d-none"}%>
               <%= f.input :buyer_preference_id, as: :hidden, input_html: { value: bp.id } %>
-              <%= f.button :submit, 'Send!' %>
+              <%= f.button :submit, 'confirm' %>
             <% end %>
           <% end %>
         </div>
-      <% end %>
+        <% end %>
+
+      </div>
+
 
       <% if @farmer_transaction.status == "confirmed" %>
         <h1>Confirmed</h1>
           <%=  @farmer_transaction.total%>
        <% else %>
-        <%= link_to "Confirm your choices", farmer_transaction_confirmation_path(@farmer_transaction) %>
+        <%= link_to "Confirm your choices", farmer_transaction_confirmation_path(@farmer_transaction), class: "btn btn-main"%>
       <% end %>
 </div>
 
