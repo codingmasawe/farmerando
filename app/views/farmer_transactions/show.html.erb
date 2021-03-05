@@ -1,18 +1,18 @@
-<div>
-  <h2>
-    Current products for transaction
-  </h2>
+<div class="container">
+  <h5>
+    <%= @farmer.first_name %>, choose the amount of produces you would like to sell to <%= @buyer.first_name %>
+  </h5>
 
-</div>
-
-<% @buyer.buyer_preferences.each do |bp| %>
-  <%= bp.product.name %>, <%= bp.price %> |
-  <%= simple_form_for([@farmer_transaction, TransactionProduct.new], method: :post) do |f| %>
-  <%= f.input :quantity %>
-  <%= f.submit %>
+  <% @buyer.buyer_preferences.each do |bp| %>
+    <%= bp.product.name %>, <%= bp.price %> |
+    <%= simple_form_for([@farmer_transaction, TransactionProduct.new], method: :post) do |f| %>
+    <%= f.input :quantity %>
+    <%#= f.submit %>
+    <% end %>
   <% end %>
-<% end %>
 
+ <%= link_to "Confirm your choices", farmer_transaction_confirmation_path(@farmer_transaction) %>
+</div>
 
 
 

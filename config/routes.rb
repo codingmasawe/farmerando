@@ -13,4 +13,6 @@ Rails.application.routes.draw do
     resources :farmer_transactions, only: [:new, :create, :show] do
       resources :transaction_products, only: [:create]
     end
+
+    get '/confirm/:id', to: 'farmer_transactions#confirm', as: :farmer_transaction_confirmation
 end
