@@ -15,11 +15,5 @@ class DashboardsController < ApplicationController
     else
     render "dashboards/show_buyer"
     end
-
-
-
-
-
   end
-
 end

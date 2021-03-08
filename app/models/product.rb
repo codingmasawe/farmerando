@@ -17,10 +17,4 @@ class Product < ApplicationRecord
     end
       @average_price
   end
-
-  def buyers_of_product
-    if self.buyer_preferences.any?
-      @buyers_of_product =
-
-
 end
