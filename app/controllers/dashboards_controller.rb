@@ -5,6 +5,7 @@ class DashboardsController < ApplicationController
       buyer.buyer_preferences
     end.flatten
 
+
     @farmer_products = current_user.farmer_products
     # @buyer_preferences = @buyer_preferences.select do |pref|
 
