@@ -1,3 +1,47 @@
 <!-- This will be the buyer's dashboard -->
 <h1>buyer's dashboard test</h1>
-  <%= link_to "log out", destroy_user_session_path, method: :delete  %>
+<%= link_to "log out", destroy_user_session_path, method: :delete  %>
+<!--  -->
+<div class="dashboard-banner m-3 d-flex justify-content-between align-items-center">
+    <div class="product-container text-center mt-2">
+      <div class="procuct-avatar mb-2">
+      <%= image_tag "potato-icon.jpg", alt: "Change Procuct", class: "avatar" %>
+      </div>
+      <%= link_to 'Change Produce', "#", class: "btn btn-main-small"%>
+    </div>
+    <div class="avatar-container text-center">
+      <%= image_tag current_user.img_url, alt: "User Avatar", class: "avatar-large" %>
+      <p class="greeting"> Hello, <%= current_user.first_name %>!  </p>
+    </div>
+    <div class="mt-2 text-center">
+      <div>
+        <%= image_tag "markets/nakasero.jpg", alt: "Choose Market", class: "avatar  mb-2" %>
+      </div>
+      <div>
+        <%= link_to "#", class: "btn btn-main-small" do %>
+          Mwenge Market
+          <i class="fas fa-sort-down"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<!-- this is a provisory link to logout -->
+<%= link_to "log out", destroy_user_session_path, method: :delete  %>
+<!--  -->
+
+
+<!-- <div class="container">
+  <div class="container-horizontal">
+    <div class="row py-4">
+      <%#   @farmer_products.each do |product| %>
+        <%#= render "shared/card-produce", product: product %>
+      <%# end  %>
+      <ul class="buyer-list">
+        <%# @buyer_preferences.each do |bp| %>
+          <%#= render "shared/card-buyer", product: bp.product, price:bp.price, user:bp.user %>
+        <%# end  %>
+      </ul>
+    </div>
+  </div>
+</div> -->
+
