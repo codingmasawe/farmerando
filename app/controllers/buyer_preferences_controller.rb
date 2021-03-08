@@ -18,6 +18,16 @@ class BuyerPreferencesController < ApplicationController
     end
   end
 
+  def edit
+    @buyer_preference = BuyerPreference.find(params[:id])
+  end
+
+  def update
+    @buyer_preference = BuyerPreference.find(params[:id])
+    @buyer_preference.update(price: params[:price])
+    redirect_to dashboards_path
+  end
+
   private
 
   def buyer_preference_params

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :farmer_products, only: [:new, :show, :create]
     get "profile", to: "users#profile"
 
-    resources :buyer_preferences, only: [:new, :create]
+    resources :buyer_preferences, only: [:new, :create, :edit, :update]
     get "profile", to: "users#profile"
 
     get "dashboards", to: "dashboards#show"
