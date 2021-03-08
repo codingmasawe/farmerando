@@ -27,3 +27,7 @@
 <!-- cards for transaction requests
 cards for adjusting buyer preferences
  -->
+
+ <% current_user.buyer_preferences.each do |bp| %>
+<%= render "buyer_preferences/edit", buyer_preference: bp %>
+<% end %>
