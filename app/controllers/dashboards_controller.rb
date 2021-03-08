@@ -14,5 +14,9 @@ class DashboardsController < ApplicationController
     @buyer_preferences = @buyer_preferences.select do |pref|
       @farmer_products.include?(pref.product)
     end
+
+
+
   end
+
 end
