@@ -11,7 +11,7 @@ class BuyerPreferencesController < ApplicationController
       redirect_to root_path
       #we need to redirect, but not to another page, render the same page (form)
       #but with the list of vegetables already added to the preferences (see users profile view)
-      # add a button to the bottom of the page saying I'm ready to redirect the
+      # add a button to the bottom of the page saying "I'm ready", to redirect the
       # buyer to the dashboard after the is ready with his buyer preferences
     else
       render :new
