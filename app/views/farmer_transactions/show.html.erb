@@ -5,16 +5,19 @@
       <div>
         <% @buyer.buyer_preferences.each do |bp| %>
         <div>
-        <%= render "shared/card-produce-only-image", product: bp.product %>
-        <%= bp.product.name %>, <%= bp.price %>$
         <% if bp.transaction_products.where(farmer_transaction_id: @farmer_transaction.id).any? %>
           <%= bp.transaction_products.first.quantity %>
           <% else %>
             <%= simple_form_for([@farmer_transaction, TransactionProduct.new], method: :post) do |f| %>
-              <%= f.input :quantity, input_html: { class: "rounded-input" }, placeholder: "kg",
-                  label_html: {class: "d-none"}%>
-              <%= f.input :buyer_preference_id, as: :hidden, input_html: { value: bp.id } %>
-              <%= f.button :submit, 'confirm' %>
+              <div class="d-flex card-transaction justify-content-between align-items-center">
+                <%= render "shared/card-produce-farmer-transaction", product: bp.product, price: bp.price %>
+
+                  <%= f.input :quantity, input_html: { class: "rounded-input small-input mb-0"}, placeholder: "kg",
+                      label_html: {class: "d-none"}%>
+
+                  <%= f.input :buyer_preference_id, as: :hidden, input_html: { value: bp.id } %>
+                  <%= f.button :submit, 'Add', class: "btn-transaction-small"%>
+              </div>
             <% end %>
           <% end %>
         </div>
