@@ -9,10 +9,17 @@ class DashboardsController < ApplicationController
     @buyer_preferences = @buyer_preferences.select do |pref|
       @farmer_products.include?(pref.product)
     end
+
     if current_user.role == "farmer"
     render "dashboards/show"
     else
     render "dashboards/show_buyer"
     end
+
+
+
+
+
   end
+
 end
