@@ -17,4 +17,8 @@ class Product < ApplicationRecord
     end
       @average_price
   end
+
+  def count_buyer
+    self.buyer_preferences.count
+  end
 end
