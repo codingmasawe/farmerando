@@ -1,5 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-farmerando">
-  <%= link_to "farmerando", "#", class: "navbar-brand" %>
+  <%= link_to "farmerando", dashboards_path, class: "navbar-brand" %>
+  <%= link_to farmer_transactions_path do %>
+    <i class="fas fa-comments-dollar navbar-icon"></i>
+  <% end %>
   <%= link_to '#' do %>
     <i class="fas fa-map-marker-alt navbar-icon"></i>
   <% end %>
