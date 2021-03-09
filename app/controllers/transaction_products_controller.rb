@@ -6,7 +6,17 @@ class TransactionProductsController < ApplicationController
     @transaction_product.farmer_transaction = @farmer_transaction
 
     if @transaction_product.save
-      redirect_to farmer_transaction_path(@farmer_transaction), notice: "Added!"
+      @total = 0
+
+      @farmer_transaction.transaction_products.each do |tp|
+        @total += tp.quantity * tp.buyer_preference.price
+      end
+
+      @farmer_transaction.total = @total
+
+      @farmer_transaction.save
+
+      redirect_to farmer_transaction_path(@farmer_transaction)
     else
       redirect_to farmer_transaction_path(@farmer_transaction), notice: "Please choose a quantity"
     end
@@ -15,6 +25,6 @@ class TransactionProductsController < ApplicationController
   private
 
   def transaction_product_params
-    params.require(:transaction_product).permit(:buyer_preference_id, :quantity )
+    params.require(:transaction_product).permit(:buyer_preference_id, :quantity)
   end
 end

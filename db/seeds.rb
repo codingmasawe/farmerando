@@ -27,9 +27,11 @@ m3 = Market.create!(name: "Nakasero Market", location: "Kampala", img_url: "mark
 john = User.create!(email: "john@john.com", password: "123456", first_name: "John", last_name: "Moriwi", location: "Kampala", img_url: "users/john.jpg", role: "buyer")
 stella = User.create!(email: "stella@stella.com", password: "123456", first_name: "Stella", last_name: "Bravo", location: "Kampala", img_url: "users/stella.jpg", role: "buyer")
 godin = User.create!(email: "godin@godin.com", password: "123456", first_name: "Godin", last_name: "Maputo", location: "Kampala", img_url: "users/godin.jpg", role: "buyer")
+innocent = User.create!(email: "innocent@innocent.com", password: "123456", first_name: "Innocent", last_name: "Obiri", location: "Kampala", img_url: "users/innocent.jpg", role: "buyer")
+
 jessica = User.create!(email: "jessica@jessica.com", password: "123456", first_name: "Jessica", last_name: "Ariwa", location: "Kampala", img_url: "users/jessica.jpg", role: "farmer")
 barack = User.create!(email: "barack@barack.com", password: "123456", first_name: "Barack", last_name: "Mumba", location: "Kampala", img_url: "users/barack.jpg", role: "farmer")
-innocent = User.create!(email: "innocent@innocent.com", password: "123456", first_name: "Innocent", last_name: "Obiri", location: "Kampala", img_url: "users/innocent.jpg", role: "farmer")
+
 # u10 = User.create!(email: "richard@richard.com", password: "123456", first_name: "Richard", last_name: "Mollo", location: "Libreville", img_url: "/app/assets/images/users/richard.jpg")
 # u11 = User.create!(email: "cori@cori.com", password: "123456", first_name: "Cori", last_name: "Cando", location: "Libreville", img_url: "/app/assets/images/users/cori.jpg")
 # u12 = User.create!(email: "bruna@bruna.com", password: "123456", first_name: "Bruna", last_name: "Ka", location: "Libreville", img_url: "/app/assets/images/users/bruna.jpg")
@@ -54,10 +56,39 @@ fp_jessica_1 = FarmerProduct.create!(user: jessica, product: potato)
 fp_jessica_2 = FarmerProduct.create!(user: jessica, product: cabbage)
 fp_jessica_3 = FarmerProduct.create!(user: jessica, product: carrot)
 
+fp_barack_1 = FarmerProduct.create!(user: barack, product: eggplant)
+fp_barack_2 = FarmerProduct.create!(user: barack, product: cabbage)
+fp_barack_3 = FarmerProduct.create!(user: barack, product: lettuce)
+fp_barack_4 = FarmerProduct.create!(user: barack, product: mango)
+fp_barack_5 = FarmerProduct.create!(user: barack, product: watermelon)
+
+
 # create buyer preference
 bp_john_1 = BuyerPreference.create!(user: john, product: banana, price: 2.5)
 bp_john_2 = BuyerPreference.create!(user: john, product: cabbage, price: 3)
-bp_john_1 = BuyerPreference.create!(user: john, product: carrot, price: 1.5)
+bp_john_3 = BuyerPreference.create!(user: john, product: carrot, price: 1.5)
+bp_john_4 = BuyerPreference.create!(user: john, product: eggplant, price: 2)
+bp_john_5 = BuyerPreference.create!(user: john, product: potato, price: 1)
+
+bp_stella_1 = BuyerPreference.create!(user: stella, product: garlic, price: 0.7)
+bp_stella_2 = BuyerPreference.create!(user: stella, product: cabbage, price: 2)
+bp_stella_3 = BuyerPreference.create!(user: stella, product: lettuce, price: 1.5)
+bp_stella_4 = BuyerPreference.create!(user: stella, product: eggplant, price: 2.5)
+bp_stella_5 = BuyerPreference.create!(user: stella, product: zucchini, price: 1)
+
+bp_godin_1 = BuyerPreference.create!(user: godin, product: banana, price: 2.3)
+bp_godin_2 = BuyerPreference.create!(user: godin, product: mango, price: 3)
+bp_godin_3 = BuyerPreference.create!(user: godin, product: watermelon, price: 5)
+bp_godin_4 = BuyerPreference.create!(user: godin, product: date, price: 2.5)
+bp_godin_5 = BuyerPreference.create!(user: godin, product: pineapple, price: 3.5)
+
+bp_innocent_1 = BuyerPreference.create!(user: innocent, product: banana, price: 2)
+bp_innocent_2 = BuyerPreference.create!(user: innocent, product: mango, price: 2.8)
+bp_innocent_3 = BuyerPreference.create!(user: innocent, product: eggplant, price: 2.4)
+bp_innocent_4 = BuyerPreference.create!(user: innocent, product: zucchini, price: 1.5)
+bp_innocent_5 = BuyerPreference.create!(user: innocent, product: carrot, price: 2)
+bp_innocent_6 = BuyerPreference.create!(user: innocent, product: lettuce, price: 1)
+bp_innocent_7 = BuyerPreference.create!(user: innocent, product: garlic, price: 0.5)
 
 # create buyer preference
 bp_godin_1 = BuyerPreference.create!(user: godin, product: banana, price: 2)

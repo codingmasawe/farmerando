@@ -1,4 +1,7 @@
-  <div class="dashboard-banner m-3 d-flex justify-content-between align-items-center">
+<!-- This will be the buyer's dashboard -->
+<h1>buyer's dashboard test</h1>
+<!--  -->
+<div class="dashboard-banner m-3 d-flex justify-content-between align-items-center">
     <div class="product-container text-center mt-2">
       <div class="procuct-avatar mb-2">
       <%= image_tag "potato-icon.jpg", alt: "Change Procuct", class: "avatar" %>
@@ -21,22 +24,10 @@
       </div>
     </div>
   </div>
+<!-- cards for transaction requests
+cards for adjusting buyer preferences
+ -->
 
-<div class="container">
-  <div class="container-horizontal">
-    <div class="row py-4">
-      <ul class="buyer-list">
-        <% @users_displayed = [] %>
-        <% BuyerPreference.all.each do |bp| %>
-          <% if @product_array.include?(bp.product_id) %>
-            <% unless @users_displayed.include?(bp.user) %>
-              <% @users_displayed << bp.user %>
-              <%= render "shared/card-buyer", product: bp.product, price: bp.price, user: bp.user %>
-            <% end %>
-          <% end  %>
-        <% end  %>
-      </ul>
-    </div>
-  </div>
-</div>
-
+ <% current_user.buyer_preferences.each do |bp| %>
+<%= render "buyer_preferences/edit", buyer_preference: bp %>
+<% end %>
