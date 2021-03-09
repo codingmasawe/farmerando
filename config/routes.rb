@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get "profile", to: "users#profile"
 
     get "dashboards", to: "dashboards#show"
-    resources :farmer_transactions, only: [:new, :create, :show] do
+    resources :farmer_transactions, only: [:new, :create, :index, :show] do
       resources :transaction_products, only: [:create]
     end
 
