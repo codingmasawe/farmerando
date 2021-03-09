@@ -1,24 +1,44 @@
-<div class="container text-center mt-3 justify-content-center" data-controller="total">
+<div class="container text-center mt-3 justify-content-center">
+
   <% if @farmer_transaction.status == "confirmed" %>
 
     <div class="banner-confirmation">
-      <h1>Confirmed</h1>
-      <%=  @farmer_transaction.total%>
-    </div>
-
-  <% else %>
-    <div class="container row ">
-      <div class="col-4">
-        <%= image_tag current_user.img_url, alt: "User Avatar", class: "avatar-large" %>
-      </div>
-      <div class="greeting col-8">
-        <%= @farmer.first_name %>, choose the amount of produces you would like to sell to <%= @buyer.first_name %> <%= @buyer.last_name %>
+      <div class="container row ">
+        <div class="greeting col-8">
+          <%= @farmer.first_name %>, your offer request of <%= @farmer_transaction.total %> has been sent to <%= @buyer.first_name %> <%= @buyer.last_name %>
+        </div>
+        <div class="col-4">
+          <%= image_tag @buyer.img_url, alt: "User Avatar", class: "avatar-large" %>
+        </div>
       </div>
     </div>
-  <% end %>
 
     <div>
       <% @buyer.buyer_preferences.each do |bp| %>
+        <div>
+        <% if bp.transaction_products.where(farmer_transaction_id: @farmer_transaction.id).any? && bp.transaction_products.first.quantity > 0 %>
+          <div class="d-flex card-transaction justify-content-between align-items-center">
+                <%= render "shared/card-produce-farmer-transaction", product: bp.product, price: bp.price %>
+          <%= bp.transaction_products.first.quantity %> KG
+          </div>
+        <% end %>
+        </div>
+      <% end %>
+    </div>
+
+  <% else %>
+
+    <div class="container row ">
+      <div class="greeting col-8">
+        <%= @farmer.first_name %>, choose the amount of produces you would like to sell to <%= @buyer.first_name %> <%= @buyer.last_name %>
+      </div>
+      <div class="col-4">
+        <%= image_tag @buyer.img_url, alt: "User Avatar", class: "avatar-large" %>
+      </div>
+    </div>
+
+    <div>
+    <% @buyer.buyer_preferences.each do |bp| %>
       <div>
       <% if bp.transaction_products.where(farmer_transaction_id: @farmer_transaction.id).any? %>
         <div class="d-flex card-transaction justify-content-between align-items-center">
@@ -34,25 +54,21 @@
                     label_html: {class: "d-none"} %>
 
                 <%= f.input :buyer_preference_id, as: :hidden, input_html: { value: bp.id } %>
-                <%= f.button :submit, 'Sell', class: "btn-transaction-small", data: { action: "click->total#refresh" } %>
+                <%= f.button :submit, 'Sell', class: "btn-transaction-small" %>
             </div>
           <% end %>
         <% end %>
       </div>
-      <% end %>
+    <% end %>
+  </div>
+
+    <div class="d-flex banner-transaction justify-content-between align-items-center">
+
+
+        <span > Send offer of <%= @farmer_transaction.total %> $ to <%= @buyer.first_name %> <%= @buyer.last_name %> </span>
+
+        <%= link_to "Send!", farmer_transaction_confirmation_path(@farmer_transaction), class: "btn-transaction-small"%>
+
     </div>
-
-    <% unless @farmer_transaction.status == "confirmed" %>
-
-      <div class="banner-confirmation" >
-        <div class="total">
-          <span data-total-target="result"> <%= @farmer_transaction.total%> </span>
-        </div>
-      </div>
-
-      <%= link_to "Confirm your choices", farmer_transaction_confirmation_path(@farmer_transaction), class: "btn btn-main"%>
-
-   <% end %>
+ <% end %>
 </div>
-
-
