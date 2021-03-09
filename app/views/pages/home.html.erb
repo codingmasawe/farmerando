@@ -8,13 +8,4 @@
       <h5 class="slogan">creating markets, empowering farmers</h5>
     </div>
   </div>
-
-  <div class="login-block">
-    <% if user_signed_in? %>
-      <%= link_to 'Go to Dashboard', dashboards_path, class: "btn btn-main"%>
-    <% else %>
-      <%= link_to 'Login', new_user_session_path, class: "btn btn-main"%>
-      <%= link_to 'Register', new_user_registration_path, class: "btn btn-main mt-3"%>
-    <% end %>
-  </div>
 </div>
