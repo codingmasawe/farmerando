@@ -1,6 +1,19 @@
+<%= @farmer.first_name %>
+<%= @farmer.last_name %>
 
 
+<% @farmer_transaction.transaction_products.each do |tp| %>
+    <% if tp.quantity > 0 %>
+      <div class="d-flex card-transaction justify-content-between align-items-center">
+      <%= render "shared/card-produce-farmer-transaction", product: tp.buyer_preference.product, price: tp.buyer_preference.price%>
+      <%= tp.quantity %> KG
+      </div>
+    <% end %>
+  <% end %>
+<%= @farmer_transaction.total %>
+<%#= @farmer_transaction.status %>
 
-<%= link_to "accept", accept_transaction_path(@farmer_transaction), method: :get, controller:"farmer_transactions_controller" %>
-<%= link_to "reject", reject_transaction_path(@farmer_transaction), method: :get, controller:"farmer_transactions_controller" %>
+
+<%= link_to "accept", accept_transaction_path(@farmer_transaction), method: :post %>
+<%= link_to "reject", reject_transaction_path(@farmer_transaction), method: :post %>
 
