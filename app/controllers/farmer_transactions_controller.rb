@@ -2,6 +2,17 @@
 
 class FarmerTransactionsController < ApplicationController
 
+  def index
+    @farmer_transactions = FarmerTransaction.where(buyer_id: current_user)
+  end
+
+  def show
+    @farmer_transaction = FarmerTransaction.find(params[:id])
+    @buyer = FarmerTransaction.find(params[:id]).buyer
+    @farmer = FarmerTransaction.find(params[:id]).farmer
+    @transaction_product = TransactionProduct.new
+  end
+
   def new
     @farmer_transaction = FarmerTransaction.new
 
@@ -13,16 +24,9 @@ class FarmerTransactionsController < ApplicationController
     end
   end
 
-  def show
-    @farmer_transaction = FarmerTransaction.find(params[:id])
-    @buyer = FarmerTransaction.find(params[:id]).buyer
-    @farmer = FarmerTransaction.find(params[:id]).farmer
-    @transaction_product = TransactionProduct.new
-  end
-
   def confirm
     @farmer_transaction = FarmerTransaction.find(params[:id])
-    @farmer_transaction.status = "confirmed"
+    @farmer_transaction.status = "pending"
 
     @total = 0
 
