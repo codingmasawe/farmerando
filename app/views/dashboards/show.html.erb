@@ -25,20 +25,17 @@
 <div class="container">
   <div class="container-horizontal">
     <div class="row py-4">
-      <%   @farmer_products.each do |product| %>
-        <%= render "shared/card-produce", product: product.product %>
-      <% end  %>
       <ul class="buyer-list">
+        <% @users_displayed = [] %>
         <% BuyerPreference.all.each do |bp| %>
-
-        <% if @product_array.include?(bp.product_id) %>
-          <%= render "shared/card-buyer", product: bp.product, price:bp.price, user:bp.user %>
+          <% if @product_array.include?(bp.product_id) %>
+            <% unless @users_displayed.include?(bp.user) %>
+              <% @users_displayed << bp.user %>
+              <%= render "shared/card-buyer", product: bp.product, price: bp.price, user: bp.user %>
+            <% end %>
+          <% end  %>
         <% end  %>
-
-      <% end  %>
       </ul>
-
-
     </div>
   </div>
 </div>

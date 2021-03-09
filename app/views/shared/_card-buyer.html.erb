@@ -2,33 +2,25 @@
 
 <!-- TO DO fix avatar logic!!! (not current_user!!!) -->
     <div class="avatar-container text-center mt-4 ml-4">
-      <%= image_tag current_user.img_url, alt: "User Avatar", class: "avatar-large" %>
-      <p class="buyers-name mt-1"> <%= current_user.first_name %>!  </p>
+      <%= image_tag user.img_url, alt: "User Avatar", class: "avatar-large" %>
+      <p class="buyers-name mt-1"> <%= user.first_name %>  </p>
     </div>
 
 
 
 
   <div class="card-buyer-right">
-
     <div class="card-buyer-right-container">
-      <% @farmer_products.each do |p| %>
-      <div class="buyers-product">
-        <p class="price-margin"><%= price  %> $ </p>
-        <p class="product-name-space"><%= p.product.name %></p>
-        <%= image_tag product.img_url, width: 70 %>
-      </div>
-
-      <% end %>
+       <% @farmer_products.each do |p| %>
+         <div class="buyers-product">
+            <p class="product-name-space"><%= p.product.name %></p>
+            <%= image_tag p.product.img_url, width: 70 %>
+          </div>
+        <% end %>
     </div>
-
-
     <div class="col card-buyer-go">
       <%= link_to 'Make a transaction', new_farmer_transaction_path(user: user), class: "btn btn-main-small"%>
     </div>
-
   </div>
-
-
 
 </div>
