@@ -10,9 +10,15 @@ Rails.application.routes.draw do
     get "profile", to: "users#profile"
 
     get "dashboards", to: "dashboards#show"
-    resources :farmer_transactions, only: [:new, :create, :show] do
+    resources :farmer_transactions, only: [:new, :create, :show, :index] do
       resources :transaction_products, only: [:create]
     end
 
     get '/confirm/:id', to: 'farmer_transactions#confirm', as: :farmer_transaction_confirmation
+
+    get 'request_for_buyer/:id', to: "farmer_transactions#request_for_buyer"
+    get 'reject_transaction/:id', to: "farmer_transactions#reject_transaction", as: :reject_transaction
+    get 'accept_transaction/:id', to: "farmer_transactions#accept_transaction", as: :accept_transaction
+
 end
+
