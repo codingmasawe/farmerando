@@ -1,4 +1,4 @@
-.card-produce{
+.card-produce {
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     padding: 5px;
     display: flex;
@@ -9,7 +9,6 @@
     height:150px;
     border-radius: 25px;
   }
-
 
 .container-horizontal > .row {
   overflow-x: auto;
@@ -54,36 +53,36 @@
   // }
 // }
 
-.card-buyer-right {
-  .card-buyer-right-container {
-    display: flex;
-    p {
-      margin: auto 0;
-      font-size: 18px;
-    }
-    .price-margin {
-      margin-left: 20px;
-    }
-    .product-name-space {
-      margin-left: 6px;
-    }
-    img {
-      margin: 4px;
-      height: 75px;
-    }
-  }
-}
+// .card-buyer-right {
+//   .card-buyer-right-container {
+//     display: flex;
+//     p {
+//       margin: auto 0;
+//       font-size: 18px;
+//     }
+//     .price-margin {
+//       margin-left: 20px;
+//     }
+//     .product-name-space {
+//       margin-left: 6px;
+//     }
+//     img {
+//       margin: 4px;
+//       height: 75px;
+//     }
+//   }
+// }
 
 
-.card-buyer-products {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
+// .card-buyer-products {
+//   display: flex;
+//   flex-wrap: wrap;
+//   flex-direction: row;
+// }
 
-.card-buyer-products>* {
-  flex: 0 0 33.3333%;
-}
+// .card-buyer-products>* {
+//   flex: 0 0 33.3333%;
+// }
 
 .card-buyer-go {
   display: flex;
