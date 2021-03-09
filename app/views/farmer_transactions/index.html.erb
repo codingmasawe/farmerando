@@ -8,7 +8,7 @@
       <% end %>
     <%= ft.total %>
     <%= ft.status %>
-    <%#= link_to "Review", farmer_transaction_confirmation_path(@farmer_transaction), class: "btn-transaction-small"%>
+    <%= link_to "Review", request_for_buyer_path(ft), class: "btn-transaction-small"%>
     </p>
   <% end %>
 </div>

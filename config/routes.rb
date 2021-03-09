@@ -17,9 +17,9 @@ Rails.application.routes.draw do
 
     get '/confirm/:id', to: 'farmer_transactions#confirm', as: :farmer_transaction_confirmation
 
-    get 'request_for_buyer/:id', to: "farmer_transactions#request_for_buyer"
-    get 'reject_transaction/:id', to: "farmer_transactions#reject_transaction", as: :reject_transaction
-    get 'accept_transaction/:id', to: "farmer_transactions#accept_transaction", as: :accept_transaction
+    get 'request_for_buyer/:id', to: "farmer_transactions#request_for_buyer", as: :request_for_buyer
+    post 'reject_transaction/:id', to: "farmer_transactions#reject_transaction", as: :reject_transaction
+    post 'accept_transaction/:id', to: "farmer_transactions#accept_transaction", as: :accept_transaction
 
 end
 
