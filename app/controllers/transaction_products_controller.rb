@@ -16,7 +16,7 @@ class TransactionProductsController < ApplicationController
 
       @farmer_transaction.save
 
-      redirect_to farmer_transaction_path(@farmer_transaction), notice: "Added!"
+      redirect_to farmer_transaction_path(@farmer_transaction)
     else
       redirect_to farmer_transaction_path(@farmer_transaction), notice: "Please choose a quantity"
     end

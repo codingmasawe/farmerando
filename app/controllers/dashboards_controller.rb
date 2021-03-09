@@ -17,9 +17,9 @@ class DashboardsController < ApplicationController
       @product_array << farmerproduct.product.id
     end
     if current_user.role == "farmer"
-    render "dashboards/show"
+      render "dashboards/show"
     else
-    render "dashboards/show_buyer"
+      render "dashboards/show_buyer"
     end
   end
 end

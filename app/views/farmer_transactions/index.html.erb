@@ -1,0 +1,15 @@
+<div class="container text-center mt-3 justify-content-center">
+  Hi <%= current_user.first_name %>, here is a list of your recent offers
+
+  <% @farmer_transactions.each do |ft| %>
+    <p>from <%= ft.farmer.first_name %> <%= ft.farmer.last_name %>
+    <% ft.transaction_products.each do |tp| %>
+      <%= tp.buyer_preference.product.name %> <%= tp.quantity %>
+      <% end %>
+    <%= ft.total %>
+    <%= ft.status %>
+    <%#= link_to "Review", farmer_transaction_confirmation_path(@farmer_transaction), class: "btn-transaction-small"%>
+    </p>
+  <% end %>
+</div>
+
