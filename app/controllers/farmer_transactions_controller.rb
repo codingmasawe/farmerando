@@ -41,6 +41,29 @@ class FarmerTransactionsController < ApplicationController
     redirect_to farmer_transaction_path(@farmer_transaction)
   end
 
+  def request_for_buyer
+    @farmer_transaction = FarmerTransaction.find(params[:id])
+    @farmer = @farmer_transaction.farmer
+    @buyer = @farmer_transaction.buyer
+    @total = @farmer_transaction.total
+
+  end
+
+  def accept_transaction
+   @farmer_transaction = FarmerTransaction.find(params[:id])
+   @farmer_transaction.status = "accepted"
+   @farmer_transaction.save
+   redirect_to farmer_transaction_path(@farmer_transaction)
+  end
+
+  def reject_transaction
+    @farmer_transaction = FarmerTransaction.find(params[:id])
+    @farmer_transaction.status = "declined"
+    @farmer_transaction.save
+   redirect_to farmer_transaction_path(@farmer_transaction)
+  end
+
+
   private
 
 
@@ -48,6 +71,7 @@ class FarmerTransactionsController < ApplicationController
     params.require(:farmer_transaction).permit(:buyer_id, :farmer_id)
   end
 end
+
 
 
 # Confirm the trasaction would be like the accept and reject of airbnb
