@@ -14,7 +14,6 @@
   <% end %>
   <i class="fas fa-cog navbar-icon" id="settings-cog" onclick="toggleOn()"></i>
   <div class="settings-collapsed settings-hidden" id="cog-collapsed">
-    <%= link_to "Profile", profile_path(current_user), class: "nav-link"%>
     <% if user_signed_in? %>
       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
     <% else %>
