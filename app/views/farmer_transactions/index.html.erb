@@ -1,15 +1,34 @@
 <div class="container text-center mt-3 justify-content-center">
-  Hi <%= current_user.first_name %>, here is a list of your recent offers
+  <h5 class="greeting">
+    <%= current_user.first_name %>, here is a list of your recent offers
+  </h5>
 
-  <% @farmer_transactions.each do |ft| %>
-    <p>from <%= ft.farmer.first_name %> <%= ft.farmer.last_name %>
-    <% ft.transaction_products.each do |tp| %>
-      <%= tp.buyer_preference.product.name %> <%= tp.quantity %>
+  <div class="banner-transaction">
+    <div class="container">
+      <% @farmer_transactions.each do |ft| %>
+
+          <div class="avatar-section">
+          <%= image_tag ft.farmer.img_url, alt: "User Avatar", class: "avatar" %>
+          </div>
+          <p class="farmer-name">
+            from <span> <%= ft.farmer.first_name %></span>
+            <span> <%= ft.farmer.last_name %></span>
+          </p>
+
+
+        <div class="transaction-info">
+          <p>Total amount: <%= ft.total %> </p>
+          <p>Status: <%= ft.status %></p>
+          <% if ft.status == "pending" %>
+            <%= link_to "Review", request_for_buyer_path(ft), class: "btn-transaction-small"%>
+          <% end %>
+        </div>
       <% end %>
-    <%= ft.total %>
-    <%= ft.status %>
-    <%= link_to "Review", request_for_buyer_path(ft), class: "btn-transaction-small"%>
-    </p>
-  <% end %>
+    </div>
+  </div>
 </div>
+
+
+
+
 

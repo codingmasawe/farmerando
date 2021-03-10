@@ -52,14 +52,14 @@ class FarmerTransactionsController < ApplicationController
    @farmer_transaction = FarmerTransaction.find(params[:id])
    @farmer_transaction.status = "accepted"
    @farmer_transaction.save
-   redirect_to farmer_transaction_path(@farmer_transaction), notice: "Accepted!"
+   redirect_to farmer_transactions_path, notice: "Accepted!"
   end
 
   def reject_transaction
     @farmer_transaction = FarmerTransaction.find(params[:id])
     @farmer_transaction.status = "declined"
     @farmer_transaction.save
-    redirect_to farmer_transaction_path(@farmer_transaction), notice: "Declined!"
+    redirect_to farmer_transactions_path, notice: "Declined!"
   end
 
 
