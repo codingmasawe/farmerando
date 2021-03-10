@@ -15,12 +15,10 @@ class FarmerTransactionsController < ApplicationController
 
   def new
     @farmer_transaction = FarmerTransaction.new
-
     @farmer_transaction.buyer = User.find(params[:user])
     @farmer_transaction.farmer = current_user
-
     if @farmer_transaction.save
-      redirect_to (@farmer_transaction)
+      redirect_to farmer_transaction_path(@farmer_transaction)
     end
   end
 
