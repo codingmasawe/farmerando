@@ -6,6 +6,8 @@
     <%= f.error_notification %>
 
     <div class="form-inputs d-flex flex-column text-center justify-content-center">
+      <%= f.input :first_name, input_html: { class: "rounded-input" }, placeholder: "first name",label_html: {class: "d-none"}  %>
+      <%= f.input :last_name, input_html: { class: "rounded-input" }, placeholder: "last name",label_html: {class: "d-none"}  %>
       <%= f.input :email,
                   required: true,
                   autofocus: true,
@@ -23,6 +25,7 @@
                   placeholder: "please confirm password",
                   input_html: { autocomplete: "new-password", class: "rounded-input" } ,
                   label_html: {class: "d-none"}%>
+      <%#= f.input :avatar, as: :file, input_html: { class: "rounded-input" }  %>
       <%= f.input :role, label: "Are you a farmer or a buyer?", collection: ["farmer", "buyer"], input_html: { class: "rounded-input" }%>
     </div>
 

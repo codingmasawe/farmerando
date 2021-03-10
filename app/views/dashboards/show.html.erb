@@ -3,10 +3,12 @@
       <div class="procuct-avatar mb-2">
       <%= image_tag "potato-icon.jpg", alt: "Change Procuct", class: "avatar" %>
       </div>
-      <%= link_to 'Change Produce', "#", class: "btn btn-main-small"%>
+      <%= link_to 'Change Produce', my_products_path, class: "btn btn-main-small"%>
     </div>
     <div class="avatar-container text-center">
-      <%= image_tag current_user.img_url, alt: "User Avatar", class: "avatar-large" %>
+      <% unless current_user.img_url.nil? %>
+        <%= image_tag current_user.img_url, alt: "User Avatar", class: "avatar-large" %>
+      <% end %>
       <p class="greeting"> Hello, <%= current_user.first_name %>!  </p>
     </div>
     <div class="mt-2 text-center">

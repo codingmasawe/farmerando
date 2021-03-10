@@ -1,7 +1,16 @@
 <div class="container">
-    <%= simple_form_for buyer_preference do |f| %>
-      <%= f.input :price %>
-      <%= f.submit %>
+  <div class="card card-bp p-4 shadow mb-3">
+    <div class="d-flex align-items-center">
+      <div class='mr-2'><%= image_tag buyer_preference.product.img_url, width: "30" %> </div>
+      <p class="mb-0"><%= buyer_preference.product.name.capitalize %> </p>
+    </div>
+    <%= simple_form_for buyer_preference, remote: true do |f| %>
+      <div class="d-flex align-items-center justify-content-between">
+        <p class='mb-0'>Price in KSH</p>
+        <%= f.input :price, label: false %>
+        <%= f.submit "Update", class: 'btn btn-transaction-small' %>
+      </div>
     <% end %>
+  </div>
 </div>
 

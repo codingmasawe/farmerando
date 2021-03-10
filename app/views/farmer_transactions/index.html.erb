@@ -1,15 +1,28 @@
 <div class="container text-center mt-3 justify-content-center">
-  Hi <%= current_user.first_name %>, here is a list of your recent offers
+  <p>Hi <%= current_user.first_name %>, here is a list of your recent offers</p>
 
   <% @farmer_transactions.each do |ft| %>
-    <p>from <%= ft.farmer.first_name %> <%= ft.farmer.last_name %>
-    <% ft.transaction_products.each do |tp| %>
-      <%= tp.buyer_preference.product.name %> <%= tp.quantity %>
-      <% end %>
-    <%= ft.total %>
-    <%= ft.status %>
-    <%= link_to "Review", request_for_buyer_path(ft), class: "btn-transaction-small"%>
-    </p>
+    <% unless ft.status == "pending" %>
+      <div class="card card-bp p-4 shadow mb-3">
+        <p>From <%= ft.farmer.first_name %> <%= ft.farmer.last_name %></p>
+        <% ft.transaction_products.each do |tp| %>
+          <div class="d-flex align-items-center">
+            <div class='mr-2'><%= image_tag tp.buyer_preference.product.img_url, width: "30" %> </div>
+            <p class="mb-0 mr-2"><%= tp.buyer_preference.product.name.capitalize %> </p>
+            <p class="mb-0"><%= tp.quantity %>kg</p>
+          </div>
+        <% end %>
+        <p class="mb-0 mt-3 text-left ">TOTAL: <%= ft.total %></p>
+        <p class="mb-0 text-left ">STATUS: <%= ft.status %></p>
+        <div class="d-flex">
+          <% if  ft.status == "Confirmed" %>
+            <%= link_to "Accept transaction", accept_transaction_path(ft),remote: true, method: :post, class:'btn btn-main-small btn-green' %>
+            <%= link_to "Reject transaction", reject_transaction_path(ft),remote: true, method: :post, class:'btn btn-main-small btn-red' %>
+          <% end %>
+        </div>
+        <%#= link_to "Review", request_for_buyer_path(ft), class: "btn btn-transaction-small mt-3"%>
+      </div>
+    <% end %>
   <% end %>
 </div>
 

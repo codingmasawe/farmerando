@@ -1,12 +1,9 @@
-<!-- This will be the buyer's dashboard -->
-<h1>buyer's dashboard test</h1>
-<!--  -->
 <div class="dashboard-banner m-3 d-flex justify-content-between align-items-center">
     <div class="product-container text-center mt-2">
       <div class="procuct-avatar mb-2">
       <%= image_tag "potato-icon.jpg", alt: "Change Procuct", class: "avatar" %>
       </div>
-      <%= link_to 'Change Produce', "#", class: "btn btn-main-small"%>
+      <%= link_to 'See my offers', farmer_transactions_path, class: "btn btn-main-small"%>
     </div>
     <div class="avatar-container text-center">
       <%= image_tag current_user.img_url, alt: "User Avatar", class: "avatar-large" %>
@@ -28,6 +25,6 @@
 cards for adjusting buyer preferences
  -->
 
- <% current_user.buyer_preferences.each do |bp| %>
-<%= render "buyer_preferences/edit", buyer_preference: bp %>
+<% current_user.buyer_preferences.each do |bp| %>
+  <%= render "buyer_preferences/edit", buyer_preference: bp %>
 <% end %>

@@ -24,7 +24,7 @@ class BuyerPreferencesController < ApplicationController
 
   def update
     @buyer_preference = BuyerPreference.find(params[:id])
-    @buyer_preference.update(price: params[:price])
+    @buyer_preference.update(buyer_preference_params)
     redirect_to dashboards_path
   end
 
