@@ -26,7 +26,7 @@ class FarmerTransactionsController < ApplicationController
 
   def confirm
     @farmer_transaction = FarmerTransaction.find(params[:id])
-    @farmer_transaction.status = "pending"
+    @farmer_transaction.status = "Confirmed"
 
     @total = 0
 
@@ -50,14 +50,14 @@ class FarmerTransactionsController < ApplicationController
 
   def accept_transaction
    @farmer_transaction = FarmerTransaction.find(params[:id])
-   @farmer_transaction.status = "accepted"
+   @farmer_transaction.status = "Accepted"
    @farmer_transaction.save
    redirect_to farmer_transactions_path, notice: "Accepted!"
   end
 
   def reject_transaction
     @farmer_transaction = FarmerTransaction.find(params[:id])
-    @farmer_transaction.status = "declined"
+    @farmer_transaction.status = "Declined"
     @farmer_transaction.save
     redirect_to farmer_transactions_path, notice: "Declined!"
   end
