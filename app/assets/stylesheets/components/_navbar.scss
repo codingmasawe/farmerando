@@ -2,8 +2,9 @@
   font-family: Nunito, Helvetica, sans-serif;
   justify-content: space-between;
   vertical-align: middle;
-  background: #F9A826;
+  // background: #CFDBD5;
   padding: 0.5rem 1rem;
+  border-bottom: 1px solid #DDDDDD;
 }
 
 .navbar-farmerando .navbar-collapse {
@@ -25,8 +26,9 @@
     position: absolute;
     top: 70px;
     right: 0px;
-    background-color: #ebf5df;
+    // background-color: #CFDBD5;
     width: 160px;
+    border-bottom: 1px solid #DDDDDD
 }
 
 .settings-hidden {
