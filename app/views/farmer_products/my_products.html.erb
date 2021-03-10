@@ -1,16 +1,21 @@
 <div class="container">
-  <p>My products</p>
+  <div>
+    <h4 class="greeting text-center mt-2">
+      <%= current_user.first_name %>, list your products
+    </h4>
+  </div>
   <% @farmer_products.each do |fp| %>
     <div class="d-flex align-items-center mb-3 justify-content-between">
       <div class="d-flex align-items-center">
         <div class='mr-2'><%= image_tag fp.product.img_url, width: "30" %> </div>
         <p class="mb-0"><%= fp.product.name.capitalize %> </p>
       </div>
-      <%= link_to "Remove product", farmer_product_path(fp), remote: true, method: :delete, class:'btn btn-transaction-small'  %>
+      <!-- <i class="fas fa-trash-alt"></i> -->
+      <%= link_to "", farmer_product_path(fp), remote: true, method: :delete, class:'fas fa-trash-alt btn-delete' %>
     </div>
   <% end %>
   <p>Add a new product that I grow</p>
-  <% 5.times do  %>
+
     <%= render 'farmer_products/new', fp: FarmerProduct.new %>
-  <% end %>
+
 </div>

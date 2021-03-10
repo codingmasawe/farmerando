@@ -24,6 +24,12 @@ class FarmerProductsController < ApplicationController
 
   def my_products
     @farmer_products = current_user.farmer_products
+    @unavailable_products = []
+
+    @farmer_products.each do |fp|
+      @unavailable_products << fp.product
+    end
+    @products_available = Product.all - @unavailable_products
   end
 
   def destroy

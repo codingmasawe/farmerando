@@ -24,11 +24,14 @@
     </div>
   </div>
 
+
 <div class="container">
   <div class="container-horizontal">
-    <div class="card-flexbox">
+    <div class="horizontal-scroll-container">
       <%   @farmer_products.each do |product| %>
-        <%= render "shared/card-produce", product: product.product %>
+        <div class="horizontal-scroll-card">
+          <%= render "shared/card-produce", product: product.product %>
+        </div>
       <% end  %>
     </div>
     <div>

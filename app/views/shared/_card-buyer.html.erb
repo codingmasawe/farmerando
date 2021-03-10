@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-between">
     <div class="avatar-container text-center mt-4 ml-4 mr-3">
       <%= image_tag user.img_url, alt: "User Avatar", class: "avatar-small" %>
-      <p class="buyers-name mt-1 text-center"> <%= user.first_name %>  </p>
+      <p class="buyers-name mt-1 text-center"> <%= user.first_name %> <%= user.last_name %> </p>
     </div>
     <div class="mr-2">
       <div class="mt-4">
@@ -24,8 +24,21 @@
     </div>
   </div>
   <% if current_user.transactions_as_farmer.where(buyer_id: user.id).any? %>
-    <p><%= current_user.transactions_as_farmer.where(buyer_id: user.id).first.status %></p>
+
+      <div class="row text-center">
+        <div class="col">
+          <% if  current_user.transactions_as_farmer.where(buyer_id: user.id).first.status == "Accepted" %>
+            <i class="fas fa-check-circle"></i>
+          <% elsif current_user.transactions_as_farmer.where(buyer_id: user.id).first.status == "Declined" %>
+            <i class="far fa-times-circle"></i>
+          <% elsif current_user.transactions_as_farmer.where(buyer_id: user.id).first.status == "Confirmed" %>
+
+            <i class="fas fa-hourglass"></i>
+          <% end %>
+        </div>
+      </div>
   <% else %>
+
     <div class="row text-center">
       <div class="col">
         <%= link_to 'Make a transaction', new_farmer_transaction_path(user: user), class: "btn btn-main-small"%>

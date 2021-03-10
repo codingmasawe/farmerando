@@ -1,8 +1,14 @@
+.btn-delete{
+  text-decoration: none;
+  color: #646E78;
+}
+
+
 .btn-main {
   background-color: #99BBAD;
   border-radius: 50px;
   color: #FFFFFF;
-  padding: 8px 24px;
+  padding: 4px 8px;
   font-style: "Nunito";
   width: 200px;
   opacity: 1;
@@ -24,7 +30,7 @@
   background-color: #99BBAD;
   border-radius: 50px;
   color: #FFFFFF;
-  padding: 8px 24px;
+  padding: 4px 8px;
   font-style: "Nunito";
   font-size: 9px;
   // width: 130px;
@@ -54,7 +60,7 @@
   background-color: #FFFFFF;
   border-radius: 50px;
   color: #D3E5C5;
-  padding: 8px 24px;
+  padding: 4px 8px;
   font-style: "Nunito";
   width: 200px;
   opacity: 1;
@@ -72,10 +78,10 @@
 }
 
 .btn-transaction-small {
-  background-color: #f9a826;
+  background-color: #99BBAD;
   border-radius: 50px;
   color: #FFFFFF;
-  padding: 8px 16px;
+  padding: 4px 8px;
   font-style: "Nunito";
   font-size: 13px;
   opacity: 1;

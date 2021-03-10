@@ -1,5 +1,7 @@
 <div class="container text-center mt-3 justify-content-center">
-  <p>Hi <%= current_user.first_name %>, here is a list of your recent offers</p>
+  <h4 class="greeting">
+    Hi <%= current_user.first_name %>, here is a list of your recent offers
+  </h4>
 
   <% @farmer_transactions.each do |ft| %>
     <% unless ft.status == "pending" %>
