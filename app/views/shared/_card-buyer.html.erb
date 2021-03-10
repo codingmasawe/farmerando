@@ -1,22 +1,19 @@
-<div class="card-buyer mt-4">
+<div class="card-buyer mt-2 ml-1 mr-1">
   <div class="avatar-container text-center mt-4 ml-4">
-    <%= image_tag user.img_url, alt: "User Avatar", class: "avatar-large" %>
+    <%= image_tag user.img_url, alt: "User Avatar", class: "avatar-small" %>
     <p class="buyers-name mt-1"> <%= user.first_name %>  </p>
   </div>
   <div class="justify-content-center mr-2">
     <div class="d-flex mt-4">
       <% user.buyer_preferences.each do |p| %>
         <div class="buyers-product ml-2 mr-2">
-          <%= image_tag p.product.img_url, class: "avatar-product" %>
+          <%= image_tag p.product.img_url, class: @product_array.include?(p.product.id) ? "avatar-product-match" : "avatar-product" %>
           <%= p.price %>
-          <% if @product_array.include?(p.product.id) %>
-           <%= image_tag p.product.img_url, class: "avatar-product-match" %>
-          <% end %>
         </div>
       <% end %>
     </div>
     <div class="col card-buyer-go">
-      <%= link_to 'Make a transaction', new_farmer_transaction_path(user: user), class: "btn btn-main-small mt-4"%>
+      <%= link_to 'Make a transaction', new_farmer_transaction_path(user: user), class: "btn btn-main-small"%>
     </div>
   </div>
 </div>
