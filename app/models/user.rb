@@ -14,6 +14,6 @@ class User < ApplicationRecord
   # has_many :user_markets, dependent: :destroy
   # has_many :markets, through: :user_markets
 
-  has_many :transactions_as_buyer, source: :farmer_transactions, foreign_key: :buyer_id
-  has_many :transactions_as_farmer, source: :farmer_transactions, foreign_key: :farmer_id
+  has_many :transactions_as_buyer, class_name: "FarmerTransaction", foreign_key: :buyer_id
+  has_many :transactions_as_farmer, class_name: "FarmerTransaction", foreign_key: :farmer_id
 end
