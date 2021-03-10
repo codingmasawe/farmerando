@@ -1,11 +1,7 @@
 <%= simple_form_for fp, remote: true do |f| %>
   <div class="d-flex align-items-center mb-3 justify-content-between">
-    <%= f.association :product, label: false %>
+    <%= f.association :product, collection: @products_available, label: false %>
     <%= f.submit "Add product", class:'btn btn-transaction-small' %>
   </div>
 <% end %>
-<!-- 1. this should not be a dropdown, but a form with multiple choice (checkbox)
-displaying pictures for each product (product cards)
-2.  instead of the create farmer product button, change it to
-a button redirecting to the dashboard, when farmer is ready with
-his selection of products.-->
+
