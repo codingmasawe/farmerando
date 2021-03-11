@@ -1,7 +1,7 @@
 <div class="container text-center mt-3 justify-content-center">
-  <h4 class="greeting">
-    Hi <%= current_user.first_name %>, here is a list of your recent offers
-  </h4>
+  <p>
+    <%= current_user.first_name %>, here is a list of your recent offers
+  </p>
 
   <% @farmer_transactions.each do |ft| %>
     <% unless ft.status == "pending" %>
@@ -10,12 +10,20 @@
         <% ft.transaction_products.each do |tp| %>
           <div class="d-flex align-items-center">
             <div class='mr-2'><%= image_tag tp.buyer_preference.product.img_url, width: "30" %> </div>
-            <p class="mb-0 mr-2"><%= tp.buyer_preference.product.name.capitalize %> </p>
+            <p class="mb-0 mr-2 greeting"><%= tp.buyer_preference.product.name.capitalize %> </p>
             <p class="mb-0"><%= tp.quantity %>kg</p>
           </div>
         <% end %>
-        <p class="mb-0 mt-3 text-left ">TOTAL: <%= ft.total %></p>
-        <p class="mb-0 text-left ">STATUS: <%= ft.status %></p>
+        <p class="mb-0 mt-3 text-left ">Total: <%= ft.total %></p>
+        <p class="mb-0 text-left ">Status:
+          <% if  ft.status == "Accepted" %>
+            <i class="fas fa-check-circle mt-1 accepted"></i>
+          <% elsif ft.status == "Declined" %>
+            <i class="far fa-times-circle mt-1 declined"></i>
+          <% elsif ft.status == "Confirmed" %>
+            <i class="fas fa-hourglass mt-1 pending"></i>
+          <% end %>
+        </p>
         <div class="d-flex">
           <% if  ft.status == "Confirmed" %>
             <%= link_to "Accept transaction", accept_transaction_path(ft),remote: true, method: :post, class:'btn btn-main-small btn-green' %>

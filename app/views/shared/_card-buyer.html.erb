@@ -1,4 +1,4 @@
-<div class="card-buyer mt-2 mx-1 pb-4">
+<div class="card-buyer mt-2 mx-1 pb-2">
   <div class="d-flex justify-content-between">
     <div class="avatar-container text-center mt-4 ml-4 mr-3">
       <%= image_tag user.img_url, alt: "User Avatar", class: "avatar-small" %>
@@ -25,15 +25,15 @@
   </div>
   <% if current_user.transactions_as_farmer.where(buyer_id: user.id).any? %>
 
-      <div class="row text-center">
-        <div class="col">
+      <div class="row px-3">
+        <div class="col text-right d-flex justify-content-end px-3">
+          <p class="mb-0 mr-2">Status</p>
           <% if  current_user.transactions_as_farmer.where(buyer_id: user.id).first.status == "Accepted" %>
-            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-check-circle mt-1 accepted"></i>
           <% elsif current_user.transactions_as_farmer.where(buyer_id: user.id).first.status == "Declined" %>
-            <i class="far fa-times-circle"></i>
+            <i class="far fa-times-circle mt-1 declined"></i>
           <% elsif current_user.transactions_as_farmer.where(buyer_id: user.id).first.status == "Confirmed" %>
-
-            <i class="fas fa-hourglass"></i>
+            <i class="fas fa-hourglass mt-1 pending"></i>
           <% end %>
         </div>
       </div>
