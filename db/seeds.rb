@@ -40,6 +40,7 @@ frank = User.create!(email: "frank@frank.com", password: "123456", first_name: "
 # u12 = User.create!(email: "bruna@bruna.com", password: "123456", first_name: "Bruna", last_name: "Ka", location: "Libreville", img_url: "/app/assets/images/users/bruna.jpg")
 
 # create! 12 Products seeds
+
 banana = Product.create!(name: "banana", market: m3, img_url: "products/banana.png")
 cabbage = Product.create!(name: "cabbage", market: m3, img_url: "products/cabbage.png")
 carrot = Product.create!(name: "carrot", market: m3, img_url: "products/carrot.png")
