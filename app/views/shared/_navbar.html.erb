@@ -4,15 +4,16 @@
     <i class="fas fa-comments-dollar navbar-icon"></i>
   <% end %>
   <%= link_to '#' do %>
-    <i class="fas fa-map-marker-alt navbar-icon"></i>
+    <i class="fas fa-store navbar-icon"></i>
   <% end %>
-  <%= link_to '#' do %>
-    <i class="fas fa-cloud-sun navbar-icon"></i>
+
+  <%= link_to my_products_path do %>
+    <i class="fas fa-carrot navbar-icon"></i>
   <% end %>
-  <%= link_to '#' do %>
-    <i class="fas fa-video navbar-icon"></i>
-  <% end %>
-  <i class="fas fa-cog navbar-icon" id="settings-cog" onclick="toggleOn()"></i>
+
+  <%= image_tag current_user.img_url, id: "settings-cog", onclick: "toggleOn()", alt: "User Avatar", class: "avatar-navbar" %>
+
+  <!-- <i class="fas fa-cog navbar-icon" id="settings-cog" onclick="toggleOn()"></i> -->
   <div class="settings-collapsed settings-hidden" id="cog-collapsed">
     <% if user_signed_in? %>
       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>

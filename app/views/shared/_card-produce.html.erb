@@ -4,7 +4,7 @@ Keep this line and keep it to make product cards dynamic -->
 
 
 <div class="card-produce">
-  <div class="card-produce-info">
+  <div class="card-produce-info greeting">
       <p> <%= product.name.capitalize %> </p>
       <!-- <p> 5 Buyers </p> -->
     </div>
@@ -13,7 +13,7 @@ Keep this line and keep it to make product cards dynamic -->
   </div>
 <div class="card-produce-price">
  <!-- <strong><p> Average price: </p></strong> -->
- <strong><p> <%= product.average_price.round(2) %> </p></strong>
+ <p> <%= product.average_price.round(2) %>$ </p>
 </div>
 </div>
 
