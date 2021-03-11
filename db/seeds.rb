@@ -30,13 +30,17 @@ godin = User.create!(email: "godin@godin.com", password: "123456", first_name: "
 innocent = User.create!(email: "innocent@innocent.com", password: "123456", first_name: "Innocent", last_name: "Obiri", location: "Kampala", img_url: "users/innocent.jpg", role: "buyer")
 
 jessica = User.create!(email: "jessica@jessica.com", password: "123456", first_name: "Jessica", last_name: "Ariwa", location: "Kampala", img_url: "users/jessica.jpg", role: "farmer")
-barack = User.create!(email: "barack@barack.com", password: "123456", first_name: "Barack", last_name: "Mumba", location: "Kampala", img_url: "users/barack.jpg", role: "farmer")
+frank = User.create!(email: "frank@frank.com", password: "123456", first_name: "Frank", last_name: "Mumba", location: "Kampala", img_url: "users/frank.jpg", role: "farmer")
+
+
+
 
 # u10 = User.create!(email: "richard@richard.com", password: "123456", first_name: "Richard", last_name: "Mollo", location: "Libreville", img_url: "/app/assets/images/users/richard.jpg")
 # u11 = User.create!(email: "cori@cori.com", password: "123456", first_name: "Cori", last_name: "Cando", location: "Libreville", img_url: "/app/assets/images/users/cori.jpg")
 # u12 = User.create!(email: "bruna@bruna.com", password: "123456", first_name: "Bruna", last_name: "Ka", location: "Libreville", img_url: "/app/assets/images/users/bruna.jpg")
 
 # create! 12 Products seeds
+
 banana = Product.create!(name: "banana", market: m3, img_url: "products/banana.png")
 cabbage = Product.create!(name: "cabbage", market: m3, img_url: "products/cabbage.png")
 carrot = Product.create!(name: "carrot", market: m3, img_url: "products/carrot.png")
