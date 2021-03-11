@@ -11,11 +11,11 @@
 </div>
 
 <div class="text-center mt-2">
-  <p>Average price of your products</p>
+  <p class="mb-0">Average price of your products</p>
 </div>
 <div class="container">
   <div class="container-horizontal mb-3">
-    <div class="horizontal-scroll-container">
+    <div class="horizontal-scroll-container py-3">
       <%   @farmer_products.each do |product| %>
         <div class="horizontal-scroll-card">
           <%= render "shared/card-produce", product: product.product %>

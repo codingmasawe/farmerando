@@ -11,6 +11,8 @@
     <% end %>
     <p>TOTAL: <%= @farmer_transaction.total %></p>
     <p>STATUS: <%= @farmer_transaction.status %></p>
-  <%= link_to "accept", accept_transaction_path(@farmer_transaction), method: :post %>
-  <%= link_to "reject", reject_transaction_path(@farmer_transaction), method: :post %>
+  <div class="d-flex justify-content-between mt-2">
+    <%= link_to "accept", accept_transaction_path(@farmer_transaction), method: :post %>
+    <%= link_to "reject", reject_transaction_path(@farmer_transaction), method: :post %>
+  </div>
 </div>
