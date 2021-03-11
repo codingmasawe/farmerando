@@ -60,11 +60,11 @@ fp_jessica_1 = FarmerProduct.create!(user: jessica, product: potato)
 fp_jessica_2 = FarmerProduct.create!(user: jessica, product: cabbage)
 fp_jessica_3 = FarmerProduct.create!(user: jessica, product: carrot)
 
-fp_barack_1 = FarmerProduct.create!(user: barack, product: eggplant)
-fp_barack_2 = FarmerProduct.create!(user: barack, product: cabbage)
-fp_barack_3 = FarmerProduct.create!(user: barack, product: lettuce)
-fp_barack_4 = FarmerProduct.create!(user: barack, product: mango)
-fp_barack_5 = FarmerProduct.create!(user: barack, product: watermelon)
+fp_frank_1 = FarmerProduct.create!(user: frank, product: eggplant)
+fp_frank_2 = FarmerProduct.create!(user: frank, product: cabbage)
+fp_frank_3 = FarmerProduct.create!(user: frank, product: lettuce)
+fp_frank_4 = FarmerProduct.create!(user: frank, product: mango)
+fp_frank_5 = FarmerProduct.create!(user: frank, product: watermelon)
 
 
 # create buyer preference
