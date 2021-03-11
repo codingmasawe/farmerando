@@ -1,30 +1,9 @@
-<div class="dashboard-banner m-3 d-flex justify-content-between align-items-center">
-    <div class="product-container text-center mt-2">
-      <div class="procuct-avatar mb-2">
-      <%= image_tag "potato-icon.jpg", alt: "Change Procuct", class: "avatar" %>
-      </div>
-      <%= link_to 'See my offers', farmer_transactions_path, class: "btn btn-main-small"%>
-    </div>
-    <div class="avatar-container text-center">
-      <%= image_tag current_user.img_url, alt: "User Avatar", class: "avatar-large" %>
-      <p class="greeting"> Hello, <%= current_user.first_name %>!  </p>
-    </div>
-    <div class="mt-2 text-center">
-      <div>
-        <%= image_tag "markets/nakasero.jpg", alt: "Choose Market", class: "avatar  mb-2" %>
-      </div>
-      <div>
-        <%= link_to "#", class: "btn btn-main-small" do %>
-          Mwenge Market
-          <i class="fas fa-sort-down"></i>
-        <% end %>
-      </div>
-    </div>
-  </div>
-<!-- cards for transaction requests
-cards for adjusting buyer preferences
- -->
+<div class="text-center m-2">
+  <p class="mb-0">Update the price of your products</p>
+</div>
 
-<% current_user.buyer_preferences.each do |bp| %>
-  <%= render "buyer_preferences/edit", buyer_preference: bp %>
-<% end %>
+<div class="container">
+  <% current_user.buyer_preferences.each do |bp| %>
+    <%= render "buyer_preferences/edit", buyer_preference: bp %>
+  <% end %>
+</div>
