@@ -16,4 +16,8 @@ class User < ApplicationRecord
 
   has_many :transactions_as_buyer, class_name: "FarmerTransaction", foreign_key: :buyer_id
   has_many :transactions_as_farmer, class_name: "FarmerTransaction", foreign_key: :farmer_id
+
+  def all_farmer_products
+    self.farmer_products.map { |fp| fp.product }
+  end
 end

@@ -53,27 +53,33 @@
     </div>
 
     <div>
+
     <% @buyer.buyer_preferences.each do |bp| %>
-      <div>
-      <% if bp.transaction_products.where(farmer_transaction_id: @farmer_transaction.id).any? %>
-        <div class="d-flex card-transaction justify-content-between align-items-center">
-              <%= render "shared/card-produce-farmer-transaction", product: bp.product, price: bp.price %>
-        <%= bp.transaction_products.first.quantity %> KG added
-        </div>
-        <% else %>
-          <%= simple_form_for([@farmer_transaction, TransactionProduct.new], method: :post, remote: true) do |f| %>
-            <div class="d-flex card-transaction justify-content-between align-items-center">
-              <%= render "shared/card-produce-farmer-transaction", product: bp.product, price: bp.price %>
+      <% if @farmer.all_farmer_products.include?(bp.product) %>
 
-                <%= f.input :quantity, input_html: { class: "rounded-input small-input mb-0"}, placeholder: "kg",
-                    label_html: {class: "d-none"} %>
+        <div>
 
-                <%= f.input :buyer_preference_id, as: :hidden, input_html: { value: bp.id } %>
-                <%= f.button :submit, 'Sell', class: "btn-transaction-small" %>
-            </div>
+        <% if bp.transaction_products.where(farmer_transaction_id: @farmer_transaction.id).any? %>
+
+          <div class="d-flex card-transaction justify-content-between align-items-center">
+                <%= render "shared/card-produce-farmer-transaction", product: bp.product, price: bp.price %>
+          <%= bp.transaction_products.first.quantity %> KG added
+          </div>
+          <% else %>
+            <%= simple_form_for([@farmer_transaction, TransactionProduct.new], method: :post, remote: true) do |f| %>
+              <div class="d-flex card-transaction justify-content-between align-items-center">
+                <%= render "shared/card-produce-farmer-transaction", product: bp.product, price: bp.price %>
+
+                  <%= f.input :quantity, input_html: { class: "rounded-input small-input mb-0"}, placeholder: "kg",
+                      label_html: {class: "d-none"} %>
+
+                  <%= f.input :buyer_preference_id, as: :hidden, input_html: { value: bp.id } %>
+                  <%= f.button :submit, 'Sell', class: "btn-transaction-small" %>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <% unless @farmer_transaction.total.nil? %>
