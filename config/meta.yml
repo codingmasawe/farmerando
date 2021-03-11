@@ -2,5 +2,5 @@
 meta_product_name: "Farmerando"
 meta_title: "Farmerando - Creating Markets, Empowering Farmers"
 meta_description: "Farmerando offers a simple and direct peer-to-peer platform between farmers and vendors in developing countries"
-meta_image: "farmerando_cropped.png" # should exist in `app/assets/images/`
+meta_image: "farmerando_cropped.jpeg" # should exist in `app/assets/images/`
 twitter_account: "@farmerandoApp"   # required for Twitter Cards
