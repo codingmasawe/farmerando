@@ -14,7 +14,7 @@
                   <%= image_tag p.product.img_url, class: @product_array.include?(p.product.id) ? "avatar-product-match" : "avatar-product" %>
                 </div>
                 <div class='text-center'>
-                  <%= p.price %>
+                 <p><%= p.price %>$</p>
                 </div>
               </div>
             </div>
@@ -41,7 +41,7 @@
 
     <div class="row text-center">
       <div class="col">
-        <%= link_to 'Make a transaction', new_farmer_transaction_path(user: user), class: "btn btn-main-small"%>
+        <%= link_to 'Sell!', new_farmer_transaction_path(user: user), class: "btn btn-main-small"%>
       </div>
     </div>
   <% end %>

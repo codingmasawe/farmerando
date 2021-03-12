@@ -5,7 +5,7 @@
       <% if tp.quantity > 0 %>
         <div class="d-flex card-transaction justify-content-between align-items-center">
         <%= render "shared/card-produce-farmer-transaction", product: tp.buyer_preference.product, price: tp.buyer_preference.price%>
-        <%= tp.quantity %> KG
+        <%= tp.quantity %> kg
         </div>
       <% end %>
     <% end %>

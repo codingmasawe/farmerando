@@ -63,7 +63,7 @@
 
           <div class="d-flex card-transaction justify-content-between align-items-center">
                 <%= render "shared/card-produce-farmer-transaction", product: bp.product, price: bp.price %>
-          <%= bp.transaction_products.first.quantity %> KG added
+          <%= bp.transaction_products.first.quantity %> kg added
           </div>
           <% else %>
             <%= simple_form_for([@farmer_transaction, TransactionProduct.new], method: :post, remote: true) do |f| %>
@@ -84,7 +84,7 @@
   </div>
   <% unless @farmer_transaction.total.nil? %>
     <div class="d-flex card-transaction justify-content-center align-items-center">
-      <span> Send offer of <%= @farmer_transaction.total.round(2) %> $ to <%= @buyer.first_name %> <%= @buyer.last_name %> </span>
+      <span> You will receive <%= @farmer_transaction.total.round(2) %> $ from <%= @buyer.first_name %> <%= @buyer.last_name %> </span>
     </div>
   <% end %>
     <div class="button-send mb-2">
